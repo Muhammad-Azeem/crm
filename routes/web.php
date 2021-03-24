@@ -16,6 +16,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/add-supervisor', function () {
+    return view('managers.add-supervisor');
+});
+Route::get('/sales', function () {
+    return view('managers.index');
+});
+Route::get('/add-form', function () {
+    return view('users.add-form');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
