@@ -25,6 +25,9 @@ Route::get('/sales', function () {
 Route::get('/add-form', function () {
     return view('users.add-form');
 });
+Route::get('/sup-dashboard', function () {
+    return view('supervisors.dashboard');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
