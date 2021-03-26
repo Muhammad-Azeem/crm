@@ -19,6 +19,7 @@
     <!--end::Page Vendors Styles -->
 
     <!--begin::Global Theme Styles(used by all pages) -->
+    <link href="assets/css/pages/wizard/wizard-4.css" rel="stylesheet" type="text/css" />
 
     <!--begin:: Vendor Plugins -->
     <link href="assets/plugins/general/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" type="text/css" />
