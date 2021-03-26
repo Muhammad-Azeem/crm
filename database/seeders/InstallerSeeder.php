@@ -32,7 +32,7 @@ class InstallerSeeder extends Seeder
 
         /************************ Create Admin  *****************************/
         $user = User::firstOrCreate(['id' => 1],[
-            'name' => 'Admin',
+            'f_name' => 'Admin',
             'email' => 'superadmin@crm.com',
             'password' => Hash::make('admin123.'),
             'created_at' => Carbon::now(),
