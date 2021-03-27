@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Supervisor\SupervisorController;
@@ -19,7 +20,7 @@ Route::post('/loginPost',[AuthController::class,'Login'])->name('login-save');
 Route::get('/logout',[AuthController::class,'logout'])->name('logout');
 
 //Route::group(['middleware' => 'CheckLoggedIn'], function () {
-    Route::get('/add-supervisor',[SupervisorController::class,'superVisorView']);
+  Route::get('/add',[UserController::class,'add']);
   Route::post('/save-supervisor',[SupervisorController::class,'saveSuperVisor']);
 // });
 
