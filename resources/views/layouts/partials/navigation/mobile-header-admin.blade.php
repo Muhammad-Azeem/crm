@@ -1,8 +1,9 @@
 <!-- begin:: Header Mobile -->
 <div id="kt_header_mobile" class="kt-header-mobile  kt-header-mobile--fixed ">
     <div class="kt-header-mobile__logo">
-        <a href="index.html">
-            <img alt="Logo" src="assets/media/logos/logo-12.png" />
+        <a href="{{url('/')}}">
+            CRM
+{{--            <img alt="Logo" src="assets/media/logos/logo-12.png" />--}}
         </a>
     </div>
     <div class="kt-header-mobile__toolbar">

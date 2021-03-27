@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Supervisor\SupervisorController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,13 +13,23 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Auth Routes
+Route::get('/login',[AuthController::class,'login_form'])->name('login-form');
+Route::post('/loginPost',[AuthController::class,'Login'])->name('login-save');
+Route::get('/logout',[AuthController::class,'logout'])->name('logout');
+
+//Route::group(['middleware' => 'CheckLoggedIn'], function () {
+    Route::get('/add-supervisor',[SupervisorController::class,'superVisorView']);
+  Route::post('/save-supervisor',[SupervisorController::class,'saveSuperVisor']);
+// });
+
 
 Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/add-supervisor', function () {
     return view('managers.add-supervisor');
-});
+})->name('test');
 Route::get('/sales', function () {
     return view('managers.index');
 });

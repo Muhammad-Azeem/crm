@@ -15,44 +15,22 @@
         <div class="kt-container  kt-container--fluid ">
             <div class="kt-subheader__main">
                 <h3 class="kt-subheader__title">
-                    Edit User
+                    Add User
                 </h3>
-                <span class="kt-subheader__separator kt-subheader__separator--v"></span>
-                <div class="kt-subheader__group" id="kt_subheader_search">
-										<span class="kt-subheader__desc" id="kt_subheader_total">
-											Alex Stone </span>
-                </div>
+{{--                <span class="kt-subheader__separator kt-subheader__separator--v"></span>--}}
+{{--                <div class="kt-subheader__group" id="kt_subheader_search">--}}
+{{--										<span class="kt-subheader__desc" id="kt_subheader_total">--}}
+{{--									    		Alex Stone </span>--}}
+{{--                </div>--}}
             </div>
+            @include('includes.messages')
             <div class="kt-subheader__toolbar">
-                <a href="#" class="btn btn-default btn-bold">
-                    Back </a>
+{{--                <a href="#" class="btn btn-default btn-bold">--}}
+{{--                    Back </a>--}}
                 <div class="btn-group">
-                    <button type="button" class="btn btn-brand btn-bold">
+                    <button form="my-form" type="submit" class="btn btn-brand btn-bold">
                         Save Changes </button>
-                    <button type="button" class="btn btn-brand btn-bold dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     </button>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <ul class="kt-nav">
-                            <li class="kt-nav__item">
-                                <a href="#" class="kt-nav__link">
-                                    <i class="kt-nav__link-icon flaticon2-writing"></i>
-                                    <span class="kt-nav__link-text">Save &amp; continue</span>
-                                </a>
-                            </li>
-                            <li class="kt-nav__item">
-                                <a href="#" class="kt-nav__link">
-                                    <i class="kt-nav__link-icon flaticon2-medical-records"></i>
-                                    <span class="kt-nav__link-text">Save &amp; add new</span>
-                                </a>
-                            </li>
-                            <li class="kt-nav__item">
-                                <a href="#" class="kt-nav__link">
-                                    <i class="kt-nav__link-icon flaticon2-hourglass-1"></i>
-                                    <span class="kt-nav__link-text">Save &amp; exit</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
             </div>
         </div>
@@ -88,34 +66,12 @@
                                 </svg> Account
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#kt_user_edit_tab_3" role="tab">
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
-                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                        <rect x="0" y="0" width="24" height="24" />
-                                        <path d="M4,4 L11.6314229,2.5691082 C11.8750185,2.52343403 12.1249815,2.52343403 12.3685771,2.5691082 L20,4 L20,13.2830094 C20,16.2173861 18.4883464,18.9447835 16,20.5 L12.5299989,22.6687507 C12.2057287,22.8714196 11.7942713,22.8714196 11.4700011,22.6687507 L8,20.5 C5.51165358,18.9447835 4,16.2173861 4,13.2830094 L4,4 Z" fill="#000000" opacity="0.3" />
-                                        <path d="M12,11 C10.8954305,11 10,10.1045695 10,9 C10,7.8954305 10.8954305,7 12,7 C13.1045695,7 14,7.8954305 14,9 C14,10.1045695 13.1045695,11 12,11 Z" fill="#000000" opacity="0.3" />
-                                        <path d="M7.00036205,16.4995035 C7.21569918,13.5165724 9.36772908,12 11.9907452,12 C14.6506758,12 16.8360465,13.4332455 16.9988413,16.5 C17.0053266,16.6221713 16.9988413,17 16.5815,17 C14.5228466,17 11.463736,17 7.4041679,17 C7.26484009,17 6.98863236,16.6619875 7.00036205,16.4995035 Z" fill="#000000" opacity="0.3" />
-                                    </g>
-                                </svg> Change Password
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#kt_user_edit_tab_4" role="tab">
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
-                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                        <rect x="0" y="0" width="24" height="24" />
-                                        <path d="M6,2 L18,2 C18.5522847,2 19,2.44771525 19,3 L19,12 C19,12.5522847 18.5522847,13 18,13 L6,13 C5.44771525,13 5,12.5522847 5,12 L5,3 C5,2.44771525 5.44771525,2 6,2 Z M7.5,5 C7.22385763,5 7,5.22385763 7,5.5 C7,5.77614237 7.22385763,6 7.5,6 L13.5,6 C13.7761424,6 14,5.77614237 14,5.5 C14,5.22385763 13.7761424,5 13.5,5 L7.5,5 Z M7.5,7 C7.22385763,7 7,7.22385763 7,7.5 C7,7.77614237 7.22385763,8 7.5,8 L10.5,8 C10.7761424,8 11,7.77614237 11,7.5 C11,7.22385763 10.7761424,7 10.5,7 L7.5,7 Z" fill="#000000" opacity="0.3" />
-                                        <path d="M3.79274528,6.57253826 L12,12.5 L20.2072547,6.57253826 C20.4311176,6.4108595 20.7436609,6.46126971 20.9053396,6.68513259 C20.9668779,6.77033951 21,6.87277228 21,6.97787787 L21,17 C21,18.1045695 20.1045695,19 19,19 L5,19 C3.8954305,19 3,18.1045695 3,17 L3,6.97787787 C3,6.70173549 3.22385763,6.47787787 3.5,6.47787787 C3.60510559,6.47787787 3.70753836,6.51099993 3.79274528,6.57253826 Z" fill="#000000" />
-                                    </g>
-                                </svg> Settings
-                            </a>
-                        </li>
                     </ul>
                 </div>
             </div>
             <div class="kt-portlet__body">
-                <form action="" method="">
+                <form action="{{url('/save-supervisor')}}" method="post" enctype="multipart/form-data" id="my-form">
+                    @csrf
                     <div class="tab-content">
                         <div class="tab-pane active" id="kt_user_edit_tab_1" role="tabpanel">
                             <div class="kt-form kt-form--label-right">
@@ -132,10 +88,10 @@
                                                 <label class="col-xl-3 col-lg-3 col-form-label">Avatar</label>
                                                 <div class="col-lg-9 col-xl-6">
                                                     <div class="kt-avatar kt-avatar--outline kt-avatar--circle-" id="kt_user_edit_avatar">
-                                                        <div class="kt-avatar__holder" style="background-image: url('assets/media/users/300_20.jpg');"></div>
+                                                        <img class="kt-avatar__holder" id="current-dp" src="{{asset('assets/media/users/100_1.jpg')}}">
                                                         <label class="kt-avatar__upload" data-toggle="kt-tooltip" title="" data-original-title="Change avatar">
                                                             <i class="fa fa-pen"></i>
-                                                            <input type="file" name="profile_avatar" accept=".png, .jpg, .jpeg">
+                                                            <input type="file" onchange="readURL(this);" name="profile_avatar" accept=".png, .jpg, .jpeg">
                                                         </label>
                                                         <span class="kt-avatar__cancel" data-toggle="kt-tooltip" title="" data-original-title="Cancel avatar">
 																				<i class="fa fa-times"></i>
@@ -146,19 +102,19 @@
                                             <div class="form-group row">
                                                 <label class="col-xl-3 col-lg-3 col-form-label">First Name</label>
                                                 <div class="col-lg-9 col-xl-6">
-                                                    <input class="form-control" type="text" value="Nick">
+                                                    <input class="form-control" type="text" value="{{old('f_name')}}" name="f_name">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-xl-3 col-lg-3 col-form-label">Last Name</label>
                                                 <div class="col-lg-9 col-xl-6">
-                                                    <input class="form-control" type="text" value="Bold">
+                                                    <input class="form-control" type="text" value="{{old('l_name')}}" name="l_name">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-xl-3 col-lg-3 col-form-label">Company Name</label>
                                                 <div class="col-lg-9 col-xl-6">
-                                                    <input class="form-control" type="text" value="Loop Inc.">
+                                                    <input class="form-control" type="text" value="{{old('company_name')}}" name="company_name">
                                                     <span class="form-text text-muted">If you want your invoices addressed to a company. Leave blank to use your full name.</span>
                                                 </div>
                                             </div>
@@ -167,7 +123,7 @@
                                                 <div class="col-lg-9 col-xl-6">
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text"><i class="la la-phone"></i></span></div>
-                                                        <input type="text" class="form-control" value="+35278953712" placeholder="Phone" aria-describedby="basic-addon1">
+                                                        <input type="number" class="form-control" placeholder="Phone"  aria-describedby="basic-addon1" name="contact_number">
                                                     </div>
                                                     <span class="form-text text-muted">We'll never share your email with anyone else.</span>
                                                 </div>
@@ -177,7 +133,7 @@
                                                 <div class="col-lg-9 col-xl-6">
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text"><i class="la la-at"></i></span></div>
-                                                        <input type="text" class="form-control" value="nick.bold@loop.com" placeholder="Email" aria-describedby="basic-addon1">
+                                                        <input type="email" class="form-control" placeholder="Email" value="{{old('email')}}" aria-describedby="basic-addon1" name="email">
                                                     </div>
                                                 </div>
                                             </div>
@@ -185,7 +141,7 @@
                                                 <label class="col-xl-3 col-lg-3 col-form-label">Company Site</label>
                                                 <div class="col-lg-9 col-xl-6">
                                                     <div class="input-group">
-                                                        <input type="text" class="form-control" placeholder="Username" value="loop">
+                                                        <input type="text" class="form-control" value="{{old('company_site')}}" placeholder="Username" name="company_site">
                                                         <div class="input-group-append"><span class="input-group-text">.com</span></div>
                                                     </div>
                                                 </div>
@@ -210,24 +166,25 @@
                                                 <label class="col-xl-3 col-lg-3 col-form-label">Username</label>
                                                 <div class="col-lg-9 col-xl-6">
                                                     <div class="kt-spinner kt-spinner--sm kt-spinner--success kt-spinner--right kt-spinner--input">
-                                                        <input class="form-control" type="text" value="nick84">
+                                                        <input class="form-control" type="text" value="{{old('username')}}" name="username">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-xl-3 col-lg-3 col-form-label">Email Address</label>
+                                                <label class="col-xl-3 col-lg-3 col-form-label">Time Slots</label>
                                                 <div class="col-lg-9 col-xl-6">
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend"><span class="input-group-text"><i class="la la-at"></i></span></div>
-                                                        <input type="text" class="form-control" value="nick.watson@loop.com" placeholder="Email" aria-describedby="basic-addon1">
-                                                    </div>
-                                                    <span class="form-text text-muted">Email will not be publicly displayed. <a href="#" class="kt-link">Learn more</a>.</span>
+                                                    <select class="form-control" name="time_slots">
+                                                        <option>Select Timings</option>
+                                                        <option value="9am-6pm">9am - 6pm</option>
+                                                        <option value="10am-7pm">10am - 7pm</option>
+                                                        <option value="11am-8pm">11am - 8pm</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-xl-3 col-lg-3 col-form-label">Language</label>
                                                 <div class="col-lg-9 col-xl-6">
-                                                    <select class="form-control">
+                                                    <select class="form-control" name="language">
                                                         <option>Select Language...</option>
                                                         <option value="id">Bahasa Indonesia - Indonesian</option>
                                                         <option value="msa">Bahasa Melayu - Malay</option>
@@ -282,7 +239,7 @@
                                             <div class="form-group row">
                                                 <label class="col-xl-3 col-lg-3 col-form-label">Time Zone</label>
                                                 <div class="col-lg-9 col-xl-6">
-                                                    <select class="form-control">
+                                                    <select class="form-control" name="time_zone">
                                                         <option data-offset="-39600" value="International Date Line West">(GMT-11:00) International Date Line West</option>
                                                         <option data-offset="-39600" value="Midway Island">(GMT-11:00) Midway Island</option>
                                                         <option data-offset="-39600" value="Samoa">(GMT-11:00) Samoa</option>
@@ -434,15 +391,15 @@
                                                 <div class="col-lg-9 col-xl-6">
                                                     <div class="kt-checkbox-inline">
                                                         <label class="kt-checkbox">
-                                                            <input type="checkbox" checked=""> Email
+                                                            <input type="checkbox"  name="communication_by" value="email"> Email
                                                             <span></span>
                                                         </label>
                                                         <label class="kt-checkbox">
-                                                            <input type="checkbox" checked=""> SMS
+                                                            <input type="checkbox" name="communication_by" value="sms"> SMS
                                                             <span></span>
                                                         </label>
                                                         <label class="kt-checkbox">
-                                                            <input type="checkbox"> Phone
+                                                            <input type="checkbox" name="communication_by" value="phone"> Phone
                                                             <span></span>
                                                         </label>
                                                     </div>
@@ -460,213 +417,15 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-xl-3 col-lg-3 col-form-label">Login verification</label>
+                                                <label class="col-xl-3 col-lg-3 col-form-label">Password</label>
                                                 <div class="col-lg-9 col-xl-6">
-                                                    <button type="button" class="btn btn-label-brand btn-bold btn-sm kt-margin-t-5 kt-margin-b-5">Setup login verification</button>
-                                                    <span class="form-text text-muted">
-																			After you log in, you will be asked for additional information to confirm your identity and protect your account from being compromised.
-																			<a href="#" class="kt-link">Learn more</a>.
-																		</span>
+                                                    <input class="form-control" type="password"  name="password">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-xl-3 col-lg-3 col-form-label">Password reset verification</label>
+                                                <label class="col-xl-3 col-lg-3 col-form-label">Confirm Password</label>
                                                 <div class="col-lg-9 col-xl-6">
-                                                    <div class="kt-checkbox-single">
-                                                        <label class="kt-checkbox">
-                                                            <input type="checkbox"> Require personal information to reset your password.
-                                                            <span></span>
-                                                        </label>
-                                                    </div>
-                                                    <span class="form-text text-muted">
-																			For extra security, this requires you to confirm your email or phone number when you reset your password.
-																			<a href="#" class="kt-link">Learn more</a>.
-																		</span>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row kt-margin-t-10 kt-margin-b-10">
-                                                <label class="col-xl-3 col-lg-3 col-form-label"></label>
-                                                <div class="col-lg-9 col-xl-6">
-                                                    <button type="button" class="btn btn-label-danger btn-bold btn-sm kt-margin-t-5 kt-margin-b-5">Deactivate your account ?</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="kt_user_edit_tab_3" role="tabpanel">
-                            <div class="kt-form kt-form--label-right">
-                                <div class="kt-form__body">
-                                    <div class="kt-section kt-section--first">
-                                        <div class="kt-section__body">
-                                            <div class="alert alert-solid-danger alert-bold fade show kt-margin-t-20 kt-margin-b-40" role="alert">
-                                                <div class="alert-icon"><i class="fa fa-exclamation-triangle"></i></div>
-                                                <div class="alert-text">Configure user passwords to expire periodically. <br>Users will need warning that their passwords are going to expire, or they might inadvertently get locked out of the system!</div>
-                                                <div class="alert-close">
-                                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                        <span aria-hidden="true"><i class="la la-close"></i></span>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <label class="col-xl-3"></label>
-                                                <div class="col-lg-9 col-xl-6">
-                                                    <h3 class="kt-section__title kt-section__title-sm">Change Or Recover Your Password:</h3>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label class="col-xl-3 col-lg-3 col-form-label">Current Password</label>
-                                                <div class="col-lg-9 col-xl-6">
-                                                    <input type="password" class="form-control" value="" placeholder="Current password">
-                                                    <a href="#" class="kt-link kt-font-sm kt-font-bold kt-margin-t-5">Forgot password ?</a>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label class="col-xl-3 col-lg-3 col-form-label">New Password</label>
-                                                <div class="col-lg-9 col-xl-6">
-                                                    <input type="password" class="form-control" value="" placeholder="New password">
-                                                </div>
-                                            </div>
-                                            <div class="form-group form-group-last row">
-                                                <label class="col-xl-3 col-lg-3 col-form-label">Verify Password</label>
-                                                <div class="col-lg-9 col-xl-6">
-                                                    <input type="password" class="form-control" value="" placeholder="Verify password">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="kt-separator kt-separator--space-lg kt-separator--fit kt-separator--border-solid"></div>
-                                <div class="kt-form__actions">
-                                    <div class="row">
-                                        <div class="col-xl-3"></div>
-                                        <div class="col-lg-9 col-xl-6">
-                                            <a href="#" class="btn btn-label-brand btn-bold">Save changes</a>
-                                            <a href="#" class="btn btn-clean btn-bold">Cancel</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="kt_user_edit_tab_4" role="tabpanel">
-                            <div class="kt-form kt-form--label-right">
-                                <div class="kt-form__body">
-                                    <div class="kt-section kt-section--first">
-                                        <div class="kt-section__body">
-                                            <div class="row">
-                                                <label class="col-xl-3"></label>
-                                                <div class="col-lg-9 col-xl-6">
-                                                    <h3 class="kt-section__title kt-section__title-sm">Setup Email Notification:</h3>
-                                                </div>
-                                            </div>
-                                            <div class="form-group form-group-sm row">
-                                                <label class="col-xl-3 col-lg-3 col-form-label">Email Notification</label>
-                                                <div class="col-lg-9 col-xl-6">
-																		<span class="kt-switch">
-																			<label>
-																				<input type="checkbox" checked="checked" name="email_notification_1">
-																				<span></span>
-																			</label>
-																		</span>
-                                                </div>
-                                            </div>
-                                            <div class="form-group form-group-last row">
-                                                <label class="col-xl-3 col-lg-3 col-form-label">Send Copy To Personal Email</label>
-                                                <div class="col-lg-9 col-xl-6">
-																		<span class="kt-switch">
-																			<label>
-																				<input type="checkbox" name="email_notification_2">
-																				<span></span>
-																			</label>
-																		</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="kt-separator kt-separator--border-dashed kt-separator--portlet-fit kt-separator--space-lg"></div>
-                                    <div class="kt-section kt-section--first">
-                                        <div class="kt-section__body">
-                                            <div class="row">
-                                                <label class="col-xl-3"></label>
-                                                <div class="col-lg-9 col-xl-6">
-                                                    <h3 class="kt-section__title kt-section__title-sm">Activity Related Emails:</h3>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label class="col-xl-3 col-lg-3 col-form-label">When To Email</label>
-                                                <div class="col-lg-9 col-xl-6">
-                                                    <div class="kt-checkbox-list">
-                                                        <label class="kt-checkbox">
-                                                            <input type="checkbox"> You have new notifications.
-                                                            <span></span>
-                                                        </label>
-                                                        <label class="kt-checkbox">
-                                                            <input type="checkbox"> You're sent a direct message
-                                                            <span></span>
-                                                        </label>
-                                                        <label class="kt-checkbox">
-                                                            <input type="checkbox" checked="checked"> Someone adds you as a connection
-                                                            <span></span>
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group form-group-last row">
-                                                <label class="col-xl-3 col-lg-3 col-form-label">When To Escalate Emails</label>
-                                                <div class="col-lg-9 col-xl-6">
-                                                    <div class="kt-checkbox-list">
-                                                        <label class="kt-checkbox kt-checkbox--brand">
-                                                            <input type="checkbox"> Upon new order.
-                                                            <span></span>
-                                                        </label>
-                                                        <label class="kt-checkbox kt-checkbox--brand">
-                                                            <input type="checkbox"> New membership approval
-                                                            <span></span>
-                                                        </label>
-                                                        <label class="kt-checkbox kt-checkbox--brand">
-                                                            <input type="checkbox" checked="checked"> Member registration
-                                                            <span></span>
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="kt-separator kt-separator--border-dashed kt-separator--portlet-fit kt-separator--space-lg"></div>
-                                    <div class="kt-section kt-section--first">
-                                        <div class="kt-section__body">
-                                            <div class="row">
-                                                <label class="col-xl-3"></label>
-                                                <div class="col-lg-9 col-xl-6">
-                                                    <h3 class="kt-section__title kt-section__title-sm">Updates From Keenthemes:</h3>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label class="col-xl-3 col-lg-3 col-form-label">Email You With</label>
-                                                <div class="col-lg-9 col-xl-6">
-                                                    <div class="kt-checkbox-list">
-                                                        <label class="kt-checkbox">
-                                                            <input type="checkbox"> News about Metronic product and feature updates
-                                                            <span></span>
-                                                        </label>
-                                                        <label class="kt-checkbox">
-                                                            <input type="checkbox"> Tips on getting more out of Keen
-                                                            <span></span>
-                                                        </label>
-                                                        <label class="kt-checkbox">
-                                                            <input type="checkbox" checked="checked"> Things you missed since you last logged into Keen
-                                                            <span></span>
-                                                        </label>
-                                                        <label class="kt-checkbox">
-                                                            <input type="checkbox" checked="checked"> News about Metronic on partner products and other services
-                                                            <span></span>
-                                                        </label>
-                                                        <label class="kt-checkbox">
-                                                            <input type="checkbox" checked="checked"> Tips on Metronic business products
-                                                            <span></span>
-                                                        </label>
-                                                    </div>
+                                                    <input class="form-control" type="password"  name="password_confirmation">
                                                 </div>
                                             </div>
                                         </div>
@@ -683,3 +442,15 @@
     <!-- end:: Content -->
 </div>
 @endsection
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#current-dp').attr('src', e.target.result);
+                $('#files').attr('src', e.target.result);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>

@@ -142,6 +142,7 @@
 <script src="assets/plugins/custom/jqvmap/dist/maps/jquery.vmap.germany.js" type="text/javascript"></script>
 <script src="assets/plugins/custom/jqvmap/dist/maps/jquery.vmap.europe.js" type="text/javascript"></script>
 <script src="assets/plugins/custom/uppy/dist/uppy.min.js" type="text/javascript"></script>
+<script src="assets/js/pages/custom/user/list-datatable.js" type="text/javascript"></script>
 
 <!--end:: Vendor Plugins for custom pages -->
 
