@@ -17,7 +17,7 @@ class CreateSalesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->integer('parent_id')->nullable();
-            $table->string('profile_pic');
+            $table->string('profile_pic')->nullable();
             $table->timestamp('date');
             $table->string('tl_name');
             $table->string('agent_name');

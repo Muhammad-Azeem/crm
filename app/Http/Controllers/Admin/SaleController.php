@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Form;
 use App\Models\Sale;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class SaleController extends Controller
 {
@@ -37,17 +40,38 @@ class SaleController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-           'tl_name' => ['required']
+           'user_id' => ['nullable'],
+           'parent_id' => ['nullable'],
+           'date' => ['required'],
+           'tl_name' => ['required'],
+           'agent_name' => ['required'],
+           'customer_name' => ['required'],
+           'cell_phone' => ['required'],
+           'service_type' => ['required'],
+           'billing_ac_number' => ['required'],
+           'total_to_pay' => ['required'],
+           'receivable' => ['required'],
+           'profile_pic' => ['nullable'],
+
         ]);
 
         $data = $request->all();
-        dd($data);
 
-        Sale::create($data);
+        if ($request->file('profile_pic') ){
+
+        $filename = time(). '.' . $request->profile_pic->extension();
+        $request->profile_pic->move(public_path('uploads'), $filename);
+        $data['profile_pic'] = $filename;
+        }else{
+            $filename =[];
+        }
+
+        Form::create($data);
+        return redirect()->back()->with('success', 'Form has been added successfully');
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response

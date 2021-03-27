@@ -120,37 +120,37 @@
                                                             <div class="form-group row">
                                                                 <label class="col-xl-3 col-lg-3 col-form-label">DATE:</label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="date" name="date" id="" value="Azeem">
+                                                                    <input class="form-control" type="date" name="date" id="" >
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
                                                                 <label class="col-xl-3 col-lg-3 col-form-label">T.L. NAME:</label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="text" name="tl_name" id="" placeholder="Please Enter Name">
+                                                                    <input class="form-control" type="text" name="tl_name" id="" placeholder="Please Enter T.L Name">
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
                                                                 <label class="col-xl-3 col-lg-3 col-form-label">AGENT NAME:</label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="text" name="agent_name" id="" placeholder="Please Enter Name">
+                                                                    <input class="form-control" type="text" name="agent_name" id="" placeholder="Please Enter Agent Name">
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
                                                                 <label class="col-xl-3 col-lg-3 col-form-label">CUSTOMER'S NAME:</label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="text" name="customer_name" id="" placeholder="Please Enter Name">
+                                                                    <input class="form-control" type="text" name="customer_name" id="" placeholder="Please Enter Customer Name">
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
                                                                 <label class="col-xl-3 col-lg-3 col-form-label">COMPANY'S NAME::</label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="text" name="company_name" id="" placeholder="Please Enter Name">
+                                                                    <input class="form-control" type="text" name="company_name" id="" placeholder="Please Enter Company Name">
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
                                                                 <label class="col-xl-3 col-lg-3 col-form-label">CELL PHONE:</label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="text" name="cell_phone" id="" placeholder="03134007460">
+                                                                    <input class="form-control" type="text" name="cell_phone" id="" placeholder="+923054812545">
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
@@ -164,7 +164,7 @@
                                                                 <div class="col-lg-9 col-xl-9">
                                                                     <div class="input-group">
                                                                         <div class="input-group-prepend"><span class="input-group-text"><i class="la la-at"></i></span></div>
-                                                                        <input type="text" class="form-control" name="customer_email"  placeholder="GraveDigger@gmail.com" aria-describedby="basic-addon1">
+                                                                        <input type="text" class="form-control" name="customer_email"  placeholder="customeremail@gmail.com" aria-describedby="basic-addon1">
                                                                     </div>
                                                                     <span class="form-text text-muted">Email will not be publicly displayed. <a href="#" class="kt-link">Learn more</a>.</span>
                                                                 </div>
@@ -172,60 +172,60 @@
                                                             <div class="form-group row">
                                                                 <label class="col-xl-3 col-lg-3 col-form-label">SERVICE TYPE:</label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="text" name="service_type" id="" >
+                                                                    <input class="form-control" type="text" name="service_type" id="" value="Please Enter Your Service Type" >
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
                                                                 <label class="col-xl-3 col-lg-3 col-form-label">BILLING AC:</label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="text" name="billing_ac_number" id="" >
+                                                                    <input class="form-control" type="text" name="billing_ac_number" id="" value="Please Enter Your Billing AC" >
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
                                                                 <label class="col-xl-3 col-lg-3 col-form-label">REFERENCE :</label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="text" name="reference" id="" >
+                                                                    <input class="form-control" type="text" name="reference" id="" value="Please Enter Your Reference" >
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
                                                                 <label class="col-xl-3 col-lg-3 col-form-label">SSN :</label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="text" name="ssn" id="" >
+                                                                    <input class="form-control" type="text" name="ssn" id="" value="Please Enter Your SSN" >
                                                                 </div>
                                                             </div>
 
                                                             <div class="form-group row">
                                                                 <label class="col-xl-3 col-lg-3 col-form-label">DOB :</label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="date" name="dob" id="" >
+                                                                    <input class="form-control" type="date" name="dob" id="" value="Please Enter Your Date of Birth" >
                                                                 </div>
                                                             </div>
 
                                                             <div class="form-group row">
                                                                 <label class="col-xl-3 col-lg-3 col-form-label">PER MONTH :</label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="text" name="per_month" id="" >
+                                                                    <input class="form-control" type="text" name="per_month" id="" value="Please Enter Your Per Month" >
                                                                 </div>
                                                             </div>
 
                                                             <div class="form-group row">
                                                                 <label class="col-xl-3 col-lg-3 col-form-label">TOTAL TO PAY :</label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="text" name="total_to_pay" id="" >
+                                                                    <input class="form-control" type="text" name="total_to_pay" id="" value="Please Enter Your Total to Pay" >
                                                                 </div>
                                                             </div>
 
                                                             <div class="form-group row">
                                                                 <label class="col-xl-3 col-lg-3 col-form-label">RECEIVABLE :</label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="text" name="receivable" id="" >
+                                                                    <input class="form-control" type="text" name="receivable" id="" value="Please Enter Your Receivable" >
                                                                 </div>
                                                             </div>
 
                                                             <div class="form-group row">
                                                                 <label class="col-xl-3 col-lg-3 col-form-label">REMARKS & COMMENTS :</label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="text" name="comment" id="" >
+                                                                    <input class="form-control" type="text" name="comment" id="" value="Please Enter Your Remarks & Comments" >
                                                                 </div>
                                                             </div>
                                                             <div class="kt-separator kt-separator--border-dashed kt-separator--portlet-fit kt-separator--space-lg"></div>
@@ -295,7 +295,7 @@
                                                     <div class="col-xl-6">
                                                         <div class="form-group">
                                                             <label>City</label>
-                                                            <input type="text" class="form-control" name="state" placeholder="Please Enter Your City">
+                                                            <input type="text" class="form-control" name="city" placeholder="Please Enter Your City">
                                                             <span class="form-text text-muted">Please enter your City.</span>
                                                         </div>
                                                     </div>

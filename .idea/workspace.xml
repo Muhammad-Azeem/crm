@@ -21,13 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="38046a64-44d2-497a-8a38-84c19638e262" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/SaleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/SaleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Sale.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_21_110803_create_sales_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_21_110803_create_sales_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/pages/custom/user/add-user.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/pages/custom/user/add-user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/components/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/components/header.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/users/add-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/add-form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,6 +222,10 @@
     </state>
     <state x="488" y="148" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1616801177659" />
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1616432818104" />
+    <state x="456" y="87" key="NewPhpClassDialog" timestamp="1616885940163">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="456" y="87" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1616885940163" />
     <state width="498" height="402" key="SwitcherDM" timestamp="1616785836513">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
