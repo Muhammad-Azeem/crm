@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\SaleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +29,8 @@ Route::get('/add-form', function () {
 Route::get('/sup-dashboard', function () {
     return view('supervisors.dashboard');
 });
+
+Route::post('/add-form', [SaleController::class, 'store'])->name('add-form.store');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
