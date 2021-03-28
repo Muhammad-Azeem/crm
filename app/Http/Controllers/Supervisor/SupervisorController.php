@@ -11,6 +11,13 @@ use Illuminate\Support\Facades\Validator;
 
 class SupervisorController extends Controller
 {
+    public function listing()
+    {
+        $data = User::all();
+        $count = User::count();
+        return view('managers.index', compact('data','count'));
+    }
+
     public function superVisorView()
     {
         return view('managers.add-supervisor');
@@ -72,7 +79,7 @@ class SupervisorController extends Controller
         $store->save();
         if ($store) {
             return Redirect::to(URL::previous())->with('Success', 'Supervisor Added Successfully');
-        }else{
+        } else {
             return Redirect::to(URL::previous())->with('Error', 'Failed To Add Supervisor');
         }
 

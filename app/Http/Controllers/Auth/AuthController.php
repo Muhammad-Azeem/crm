@@ -30,7 +30,7 @@ class AuthController extends Controller
         $email = User::where('email', $request->email)->first();
         if ($email) {
             if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-                return view('welcome')->with('Success', 'LoggedIn Successfully');
+                return \redirect(\url('/main-view'))->with('Success', 'LoggedIn Successfully');
             } else {
                 return \redirect()->back()->with('error', 'Invalid Password');
             }

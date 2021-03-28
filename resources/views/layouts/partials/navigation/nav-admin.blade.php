@@ -49,6 +49,10 @@
                         </ul>
                     </div>
                 </li>
+                <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"><a href="{{url('/semi-admin-listing')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-users"></i><span class="kt-menu__link-text">Semi Admin</span></a></li>
+                <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"><a href="{{url('/supervisor-listing')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-users"></i><span class="kt-menu__link-text">Supervisor</span></a></li>
+                <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"><a href="{{url('/employee-listing')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-users"></i><span class="kt-menu__link-text">Employees</span></a></li>
+
             </ul>
         </div>
     </div>
