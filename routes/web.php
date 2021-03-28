@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\Admin\SaleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Supervisor\SupervisorController;
@@ -32,8 +34,15 @@ Route::group(['middleware' => 'logged'], function () {
     Route::get('/add-supervisor', [SupervisorController::class, 'superVisorView']);
     Route::post('/save-supervisor', [SupervisorController::class, 'saveSuperVisor']);
 
+<<<<<<< HEAD
     //Semi Admin Routes
     Route::get('/semi-admin-listing',[SemiAdminController::class,'listing']);
+=======
+//Route::group(['middleware' => 'CheckLoggedIn'], function () {
+  Route::get('/add',[UserController::class,'add']);
+  Route::post('/save-supervisor',[SupervisorController::class,'saveSuperVisor']);
+// });
+>>>>>>> 8437500797e9b7770a942a780841b5b972ed8006
 
     //Supervisor Routes
     Route::get('/supervisor-listing',[SupervisorController::class,'listing']);
@@ -58,6 +67,8 @@ Route::get('/add-form', function () {
 Route::get('/sup-dashboard', function () {
     return view('supervisors.dashboard');
 });
+
+Route::post('/add-form', [SaleController::class, 'store'])->name('add-form.store');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
