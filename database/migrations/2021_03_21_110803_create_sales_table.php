@@ -17,18 +17,15 @@ class CreateSalesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->integer('parent_id')->nullable();
+            $table->string('profile_pic')->nullable();
             $table->timestamp('date');
             $table->string('tl_name');
             $table->string('agent_name');
             $table->string('customer_name');
+            $table->string('company_name');
             $table->string('cell_phone');
             $table->string('home_phone')->nullable();
-            $table->text('complete_address')->nullable();
-            $table->string('city')->nullable();
-            $table->string('province')->nullable();
-            $table->string('zip_code')->nullable();
             $table->string('customer_email')->nullable();
-            $table->string('company_name');
             $table->string('service_type');
             $table->string('billing_ac_number');
             $table->string('reference')->nullable();
@@ -38,6 +35,11 @@ class CreateSalesTable extends Migration
             $table->string('total_to_pay');
             $table->string('receivable');
             $table->text('comment')->nullable();
+            $table->text('complete_address')->nullable();
+            $table->string('city')->nullable();
+            $table->string('state')->nullable();
+            $table->string('zip_code')->nullable();
+
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
