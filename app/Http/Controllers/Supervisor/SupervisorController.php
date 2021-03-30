@@ -15,7 +15,10 @@ class SupervisorController extends Controller
     {
         $data = User::all();
         $count = User::count();
-        return view('managers.index', compact('data','count'));
+        $curr_user = 'Super Visor';
+        $curr_user_permission = 'supervisor';
+        return view('managers.index', compact('data','count' , 'curr_user' , 'curr_user_permission'));
+
     }
 
     public function superVisorView()

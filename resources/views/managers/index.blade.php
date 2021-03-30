@@ -107,8 +107,9 @@
                 <div class="kt-subheader__toolbar">
                     <a href="#" class="">
                     </a>
-                    <a href="{{url('/add-supervisor')}}" class="btn btn-label-brand btn-bold">
-                        Add User </a>
+
+                    <a href="{{url('user/add/'.$curr_user_permission.'/'.$curr_user)}}" class="btn btn-label-brand btn-bold">
+                        Add {{$curr_user}} </a>
                 </div>
             </div>
         </div>
