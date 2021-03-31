@@ -13,11 +13,15 @@ class SupervisorController extends Controller
 {
     public function listing()
     {
-        $data = User::all();
-        $count = User::count();
+
         $curr_user = 'Super Visor';
+        $filterRole='manager';
         $curr_user_permission = 'supervisor';
-        return view('managers.index', compact('data','count' , 'curr_user' , 'curr_user_permission'));
+        $data = User::whereHas("roles", function ($q) use ($curr_user_permission) {
+            $q->where("name", $curr_user_permission);
+        })->get();
+        $count=count($data);
+        return view('managers.index', compact('data','count' , 'curr_user' , 'curr_user_permission','filterRole'));
 
     }
 

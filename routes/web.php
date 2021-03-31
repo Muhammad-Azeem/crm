@@ -35,7 +35,7 @@ Route::group(['middleware' => 'logged'], function () {
     Route::get('/add-supervisor', [SupervisorController::class, 'superVisorView']);
     Route::post('/save-supervisor', [SupervisorController::class, 'saveSuperVisor']);
 
-    Route::get('user/add/{role}/{type}', [SemiAdminController::class, 'addSemiAdmin']);
+    Route::get('user/add/{role}/{type}/{filterRole}', [SemiAdminController::class, 'addSemiAdmin']);
     Route::post('user/add/', [SemiAdminController::class, 'storeSemiAdmin']);
 //    Route::get('/supervisor/home', [SemiAdminController::class, 'addSemiAdmin']);
 

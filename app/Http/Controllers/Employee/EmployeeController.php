@@ -10,8 +10,15 @@ class EmployeeController extends Controller
 {
     public function listing()
     {
-        $data = User::all();
-        $count = User::count();
-        return view('managers.index', compact('data','count'));
+        $curr_user = 'Customer';
+        $curr_user_permission = 'customer';
+        $filterRole = 'supervisor';
+        $data = User::whereHas("roles", function ($q) use ($curr_user_permission) {
+            $q->where("name", $curr_user_permission);
+        })->get();
+        $count=count($data);
+
+        return view('managers.index', compact('data','count' , 'curr_user' ,'filterRole', 'curr_user_permission'));
+
     }
 }

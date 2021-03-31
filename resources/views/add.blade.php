@@ -83,20 +83,50 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label class="col-xl-3 col-lg-3 col-form-label">Avatar</label>
+                                                    <label class="col-xl-3 col-lg-3 col-form-label">Profile Image</label>
                                                     <div class="col-lg-9 col-xl-6">
                                                         <div class="kt-avatar kt-avatar--outline kt-avatar--circle-" id="kt_user_edit_avatar">
-                                                            <img class="kt-avatar__holder" id="current-dp" src="{{asset('assets/media/users/100_1.jpg')}}">
-                                                            <label class="kt-avatar__upload" data-toggle="kt-tooltip" title="" data-original-title="Change avatar">
-                                                                <i class="fa fa-pen"></i>
-                                                                <input type="file" onchange="readURL(this);" name="profile_avatar" accept=".png, .jpg, .jpeg">
-                                                            </label>
-                                                            <span class="kt-avatar__cancel" data-toggle="kt-tooltip" title="" data-original-title="Cancel avatar">
-																				<i class="fa fa-times"></i>
-																			</span>
+
+                                                            <script>UPLOADCARE_PUBLIC_KEY = "demopublickey";</script>
+                                                            <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js" charset="utf-8"></script>
+                                                            <input type="hidden" role="uploadcare-uploader" data-crop="5:4" data-images-only >
+                                                            <!-- Your preview will be put here -->
+                                                            <div>
+                                                                <img class="kt-avatar__holder" src="{{asset('assets/media/users/dummy.png')}}" alt="" id="preview" width=300 height=300 />
+                                                            </div>
+
+                                                            {{-- END OF NEW CROPPRE --}}
+
+                                                            <input type="hidden" name="profile_picture" value="" id="destination">
+
+
+
+
+{{--                                                            <img class="kt-avatar__holder" id="current-dp" src="{{asset('assets/media/users/100_1.jpg')}}">--}}
+{{--                                                            <label class="kt-avatar__upload" data-toggle="kt-tooltip" title="" data-original-title="Change avatar">--}}
+{{--                                                                <i class="fa fa-pen"></i>--}}
+{{--                                                                <input type="file" onchange="readURL(this);" name="profile_avatar" accept=".png, .jpg, .jpeg">--}}
+{{--                                                            </label>--}}
+{{--                                                            <span class="kt-avatar__cancel" data-toggle="kt-tooltip" title="" data-original-title="Cancel avatar">--}}
+{{--																				<i class="fa fa-times"></i>--}}
+{{--																			</span>--}}
                                                         </div>
                                                     </div>
                                                 </div>
+
+                                                @if( $users != false )
+                                                    <div class="form-group row">
+                                                        <label class="col-xl-3 col-lg-3 col-form-label">Select {{$type}}</label>
+                                                        <div class="col-lg-9 col-xl-6">
+                                                            <select class="form-control" name="parent_id" required>
+                                                                <option value="">Select {{$type}}</option>
+                                                                @foreach($users as $parent)
+                                                                <option value="{{$parent->id}}">{{$parent->f_name}}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                @endif
                                                 <div class="form-group row">
                                                     <label class="col-xl-3 col-lg-3 col-form-label">First Name</label>
                                                     <div class="col-lg-9 col-xl-6">
@@ -114,7 +144,7 @@
                                                     <div class="col-lg-9 col-xl-6">
                                                         <div class="input-group">
                                                             <div class="input-group-prepend"><span class="input-group-text"><i class="la la-phone"></i></span></div>
-                                                            <input type="number" class="form-control" placeholder="Phone"  aria-describedby="basic-addon1" name="contact_number">
+                                                            <input type="number" class="form-control" placeholder="Phone"  aria-describedby="basic-addon1" name="phone_number">
                                                         </div>
                                                         {{--                                                    <span class="form-text text-muted">We'll never share your email with anyone else.</span>--}}
                                                     </div>
@@ -198,6 +228,43 @@
 
         <!-- end:: Content -->
     </div>
+
+
+        <script>
+        // Getting an instance of the widget.
+        const widget = uploadcare.Widget('[role=uploadcare-uploader]');
+        // Selecting an image to be replaced with the uploaded one.
+        const preview = document.getElementById('preview');
+        // "onUploadComplete" lets you get file info once it has been uploaded.
+        // "cdnUrl" holds a URL of the uploaded file: to replace a preview with.
+        widget.onUploadComplete(fileInfo => {
+            preview.src = fileInfo.cdnUrl;
+            // alert(fileInfo.cdnUrl);
+
+            const toDataURL = url => fetch(url)
+                .then(response => response.blob())
+                .then(blob => new Promise((resolve, reject) => {
+                    const reader = new FileReader()
+                    reader.onloadend = () => resolve(reader.result)
+                    reader.onerror = reject
+                    reader.readAsDataURL(blob)
+                }))
+
+
+            toDataURL(fileInfo.cdnUrl)
+                .then(dataUrl => {
+                    // console.log(dataUrl)
+                    preview.src = dataUrl;
+                    document.getElementById("destination").value = dataUrl;
+                })
+
+        })
+
+
+
+
+
+    </script>
 @endsection
 <script>
     function readURL(input) {
