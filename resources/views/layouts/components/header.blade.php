@@ -86,6 +86,15 @@
 
     <!--end::Layout Skins -->
     <link rel="shortcut icon" href="{{asset('assets/media/logos/favicon.ico') }}" />
+    <style>
+        .uploadcare--jcrop-holder>div>div, #preview {
+            /*border-radius: 50%;*/
+        }
+
+        .uploadcare--menu__item_tab_facebook, .uploadcare--menu__item_tab_gdrive, .uploadcare--menu__item_tab_gphotos, .uploadcare--menu__item_tab_dropbox, .uploadcare--menu__item_tab_instagram, .uploadcare--menu__item_tab_evernote, .uploadcare--menu__item_tab_flickr, .uploadcare--menu__item_tab_onedrive, .uploadcare--dialog__powered-by {
+            display: none !important;
+        }
+    </style>
 </head>
 
 <!-- end::Head -->

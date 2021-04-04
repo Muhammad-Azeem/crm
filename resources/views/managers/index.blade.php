@@ -107,8 +107,9 @@
                 <div class="kt-subheader__toolbar">
                     <a href="#" class="">
                     </a>
-                    <a href="{{url('/add-supervisor')}}" class="btn btn-label-brand btn-bold">
-                        Add User </a>
+
+                    <a href="{{url('user/add/'.$curr_user_permission.'/'.$curr_user.'/'.$filterRole)}}" class="btn btn-label-brand btn-bold">
+                        Add {{$curr_user}} </a>
                 </div>
             </div>
         </div>
@@ -123,7 +124,7 @@
                 @foreach($data as $values)
                 <div class="col-xl-3">
                     <!--Begin::Portlet-->
-                    <div class="kt-portlet kt-portlet--height-fluid">
+                    <div class="kt-portlet kt-portlet--height-fluid col-md-4">
                         <div class="kt-portlet__head kt-portlet__head--noborder">
                             <div class="kt-portlet__head-label">
                                 <h3 class="kt-portlet__head-title">
@@ -169,17 +170,18 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="kt-portlet__body">
 
                             <!--begin::Widget -->
                             <div class="kt-widget kt-widget--user-profile-2">
                                 <div class="kt-widget__head">
                                     <div class="kt-widget__media">
-                                        @if($values->profile_picture != "")
-                                            <img class="kt-widget__img kt-hidden-" src="{{asset($values->profile_picture)}}"
+                                        @if($values->profile_picture != NULL)
+                                            <img class="kt-widget__img kt-hidden-" src="{{asset('assets/media/users/'.$values->profile_picture)}}"
                                                  alt="image">
                                         @else
-                                            <img class="kt-widget__img kt-hidden-" src="{{asset('assets/media/users/default.jpg')}}"
+                                            <img class="kt-widget__img kt-hidden-" src="{{asset('assets/media/users/dummy.png')}}"
                                                  alt="image">
                                         @endif
                                         <div
@@ -192,17 +194,17 @@
                                             {{$values->f_name .' '.$values->l_name}}
                                         </a>
                                         <span class="kt-widget__desc">
-															Head of Development
+															{{$curr_user}}
 														</span>
                                     </div>
                                 </div>
                                 <div class="kt-widget__body">
-                                    <div class="kt-widget__section">
-                                        I distinguish three <a href="#"
-                                                               class="kt-font-brand kt-link kt-font-transform-u kt-font-bold">#xrs-54pq</a>
-                                        objectsves First
-                                        esetablished and nice coocked rice
-                                    </div>
+{{--                                    <div class="kt-widget__section">--}}
+{{--                                        I distinguish three <a href="#"--}}
+{{--                                                               class="kt-font-brand kt-link kt-font-transform-u kt-font-bold">#xrs-54pq</a>--}}
+{{--                                        objectsves First--}}
+{{--                                        esetablished and nice coocked rice--}}
+{{--                                    </div>--}}
                                     <div class="kt-widget__item">
                                         <div class="kt-widget__contact">
                                             <span class="kt-widget__label">Email:</span>
@@ -213,15 +215,15 @@
                                             <a href="#" class="kt-widget__data">{{$values->phone_number}}</a>
                                         </div>
                                         <div class="kt-widget__contact">
-                                            <span class="kt-widget__label">Location:</span>
-                                            <span class="kt-widget__data">{{$values->city}}</span>
+                                            <span class="kt-widget__label">CNIC:</span>
+                                            <span class="kt-widget__data">{{$values->cnic}}</span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="kt-widget__footer">
-                                    <button type="button" class="btn btn-label-warning btn-lg btn-upper">View
-                                    </button>
-                                </div>
+{{--                                <div class="kt-widget__footer">--}}
+{{--                                    <button type="button" class="btn btn-label-warning btn-lg btn-upper">View--}}
+{{--                                    </button>--}}
+{{--                                </div>--}}
                             </div>
 
                             <!--end::Widget -->
@@ -231,6 +233,7 @@
                     <!--End::Portlet-->
                 </div>
                 @endforeach
+
 {{--                <div class="col-xl-3">--}}
 
                 {{--                    <!--Begin::Portlet-->--}}
@@ -547,74 +550,74 @@
 
 
             <!--Begin::Pagination-->
-            <div class="row">
-                <div class="col-xl-12">
+{{--            <div class="row">--}}
+{{--                <div class="col-xl-12">--}}
 
-                    <!--begin:: Components/Pagination/Default-->
-                    <div class="kt-portlet">
-                        <div class="kt-portlet__body">
+{{--                    <!--begin:: Components/Pagination/Default-->--}}
+{{--                    <div class="kt-portlet">--}}
+{{--                        <div class="kt-portlet__body">--}}
 
-                            <!--begin: Pagination-->
-                            <div class="kt-pagination kt-pagination--brand">
-                                <ul class="kt-pagination__links">
-                                    <li class="kt-pagination__link--first">
-                                        <a href="#"><i class="fa fa-angle-double-left kt-font-brand"></i></a>
-                                    </li>
-                                    <li class="kt-pagination__link--next">
-                                        <a href="#"><i class="fa fa-angle-left kt-font-brand"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#">...</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">29</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">30</a>
-                                    </li>
-                                    <li class="kt-pagination__link--active">
-                                        <a href="#">31</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">32</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">33</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">34</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">...</a>
-                                    </li>
-                                    <li class="kt-pagination__link--prev">
-                                        <a href="#"><i class="fa fa-angle-right kt-font-brand"></i></a>
-                                    </li>
-                                    <li class="kt-pagination__link--last">
-                                        <a href="#"><i class="fa fa-angle-double-right kt-font-brand"></i></a>
-                                    </li>
-                                </ul>
-                                <div class="kt-pagination__toolbar">
-                                    <select class="form-control kt-font-brand" style="width: 60px">
-                                        <option value="10">10</option>
-                                        <option value="20">20</option>
-                                        <option value="30">30</option>
-                                        <option value="50">50</option>
-                                        <option value="100">100</option>
-                                    </select>
-                                    <span class="pagination__desc">
-														Displaying 10 of 230 records
-													</span>
-                                </div>
-                            </div>
+{{--                            <!--begin: Pagination-->--}}
+{{--                            <div class="kt-pagination kt-pagination--brand">--}}
+{{--                                <ul class="kt-pagination__links">--}}
+{{--                                    <li class="kt-pagination__link--first">--}}
+{{--                                        <a href="#"><i class="fa fa-angle-double-left kt-font-brand"></i></a>--}}
+{{--                                    </li>--}}
+{{--                                    <li class="kt-pagination__link--next">--}}
+{{--                                        <a href="#"><i class="fa fa-angle-left kt-font-brand"></i></a>--}}
+{{--                                    </li>--}}
+{{--                                    <li>--}}
+{{--                                        <a href="#">...</a>--}}
+{{--                                    </li>--}}
+{{--                                    <li>--}}
+{{--                                        <a href="#">29</a>--}}
+{{--                                    </li>--}}
+{{--                                    <li>--}}
+{{--                                        <a href="#">30</a>--}}
+{{--                                    </li>--}}
+{{--                                    <li class="kt-pagination__link--active">--}}
+{{--                                        <a href="#">31</a>--}}
+{{--                                    </li>--}}
+{{--                                    <li>--}}
+{{--                                        <a href="#">32</a>--}}
+{{--                                    </li>--}}
+{{--                                    <li>--}}
+{{--                                        <a href="#">33</a>--}}
+{{--                                    </li>--}}
+{{--                                    <li>--}}
+{{--                                        <a href="#">34</a>--}}
+{{--                                    </li>--}}
+{{--                                    <li>--}}
+{{--                                        <a href="#">...</a>--}}
+{{--                                    </li>--}}
+{{--                                    <li class="kt-pagination__link--prev">--}}
+{{--                                        <a href="#"><i class="fa fa-angle-right kt-font-brand"></i></a>--}}
+{{--                                    </li>--}}
+{{--                                    <li class="kt-pagination__link--last">--}}
+{{--                                        <a href="#"><i class="fa fa-angle-double-right kt-font-brand"></i></a>--}}
+{{--                                    </li>--}}
+{{--                                </ul>--}}
+{{--                                <div class="kt-pagination__toolbar">--}}
+{{--                                    <select class="form-control kt-font-brand" style="width: 60px">--}}
+{{--                                        <option value="10">10</option>--}}
+{{--                                        <option value="20">20</option>--}}
+{{--                                        <option value="30">30</option>--}}
+{{--                                        <option value="50">50</option>--}}
+{{--                                        <option value="100">100</option>--}}
+{{--                                    </select>--}}
+{{--                                    <span class="pagination__desc">--}}
+{{--														Displaying 10 of 230 records--}}
+{{--													</span>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
 
-                            <!--end: Pagination-->
-                        </div>
-                    </div>
+{{--                            <!--end: Pagination-->--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
-                    <!--end:: Components/Pagination/Default-->
-                </div>
-            </div>
+{{--                    <!--end:: Components/Pagination/Default-->--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
             <!--End::Pagination-->
         </div>

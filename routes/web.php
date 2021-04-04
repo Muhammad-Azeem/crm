@@ -1,4 +1,4 @@
-<?php
+semi-admin-listing<?php
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Admin\SaleController;
@@ -20,6 +20,7 @@ use App\Http\Controllers\Dashboard\DashboardController;
 |
 */
 //Auth Routes
+Route::get('/', [AuthController::class, 'login_form'])->name('login-form');
 Route::get('/login', [AuthController::class, 'login_form'])->name('login-form')->middleware('dashboard');
 Route::post('/loginPost', [AuthController::class, 'Login'])->name('login-save');
 
@@ -33,6 +34,11 @@ Route::group(['middleware' => 'logged'], function () {
     //Supervisor Routes
     Route::get('/add-supervisor', [SupervisorController::class, 'superVisorView']);
     Route::post('/save-supervisor', [SupervisorController::class, 'saveSuperVisor']);
+
+    Route::get('user/add/{role}/{type}/{filterRole}', [SemiAdminController::class, 'addSemiAdmin']);
+    Route::post('user/add/', [SemiAdminController::class, 'storeSemiAdmin']);
+//    Route::get('/supervisor/home', [SemiAdminController::class, 'addSemiAdmin']);
+
 
 
     //Semi Admin Routes
