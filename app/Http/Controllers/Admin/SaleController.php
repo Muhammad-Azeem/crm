@@ -39,6 +39,8 @@ class SaleController extends Controller
      */
     public function store(Request $request)
     {
+//        dd($request->all());
+
         $request->validate([
            'user_id' => ['nullable'],
            'parent_id' => ['nullable'],
@@ -54,16 +56,16 @@ class SaleController extends Controller
            'profile_pic' => ['nullable'],
 
         ]);
-
+        $request['user_id'] = auth()->user()->id;
+//        dd($request->all());
         $data = $request->all();
-
         if ($request->file('profile_pic') ){
 
         $filename = time(). '.' . $request->profile_pic->extension();
         $request->profile_pic->move(public_path('uploads'), $filename);
         $data['profile_pic'] = $filename;
         }else{
-            $filename =[];
+            $filename =NULL;
         }
 
         Form::create($data);

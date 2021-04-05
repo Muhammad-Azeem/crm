@@ -1,4 +1,4 @@
-semi-admin-listing<?php
+<?php
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Admin\SaleController;
@@ -50,6 +50,8 @@ Route::group(['middleware' => 'logged'], function () {
 
     //Employee Routes
     Route::get('/employee-listing',[EmployeeController::class,'listing']);
+    Route::get('/show-form',[EmployeeController::class,'showForm']);
+    Route::get('/form/change-status/{status}/{form_id}',[EmployeeController::class,'changeStatus']);
 
 });
 

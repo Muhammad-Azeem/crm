@@ -107,9 +107,10 @@
                 <div class="kt-subheader__toolbar">
                     <a href="#" class="">
                     </a>
-
-                    <a href="{{url('user/add/'.$curr_user_permission.'/'.$curr_user.'/'.$filterRole)}}" class="btn btn-label-brand btn-bold">
+                    @can('add-'.$curr_user_permission)
+                    <a href="{{url('user/add/'.$curr_user_permission.'/'.$canSelect.'/'.$filterRole)}}" class="btn btn-label-brand btn-bold">
                         Add {{$curr_user}} </a>
+                        @endcan
                 </div>
             </div>
         </div>
