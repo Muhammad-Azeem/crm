@@ -153,7 +153,7 @@
 <!--end::Page Vendors -->
 
 <!--begin::Page Scripts(used by this page) -->
-<script src="assets/js/pages/dashboard.js" type="text/javascript"></script>
+<script src="{{asset('assets/js/pages/dashboard.js')}}" type="text/javascript"></script>
 
 <script>
     $(".alert").fadeTo(5000, 500).slideUp(500, function(){
