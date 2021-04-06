@@ -15,14 +15,13 @@ class SupervisorController extends Controller
     {
 
         $curr_user = 'Super Visor';
-        $filterRole='manager';
+        $filterRole = 'manager';
         $curr_user_permission = 'supervisor';
         $data = User::whereHas("roles", function ($q) use ($curr_user_permission) {
             $q->where("name", $curr_user_permission);
         })->get();
-        $count=count($data);
-        return view('managers.index', compact('data','count' , 'curr_user' , 'curr_user_permission','filterRole'));
-
+        $count = count($data);
+        return view('managers.index', compact('data', 'count', 'curr_user', 'curr_user_permission', 'filterRole'));
     }
 
     public function superVisorView()
@@ -83,6 +82,5 @@ class SupervisorController extends Controller
         } else {
             return Redirect::to(URL::previous())->with('Error', 'Failed To Add Supervisor');
         }
-
     }
 }

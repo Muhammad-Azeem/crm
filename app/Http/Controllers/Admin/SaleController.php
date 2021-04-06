@@ -8,6 +8,8 @@ use App\Models\Sale;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use App\Models\User;
+use App\Notifications\FormSubmitNotification;
 
 class SaleController extends Controller
 {
@@ -66,7 +68,15 @@ class SaleController extends Controller
             $filename =[];
         }
 
-        Form::create($data);
+        $user = User::findOrFail($request->user_id);
+        $supervisor = User::findOrFail($request->parent_id);
+         
+
+
+        $form = Form::create($data);
+
+        $supervisor->notify(new FormSubmitNotification($user,$form->id));
+        
         return redirect()->back()->with('success', 'Form has been added successfully');
     }
 

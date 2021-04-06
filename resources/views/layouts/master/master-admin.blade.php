@@ -23,4 +23,3 @@
 
 <!-- end:: Page -->
 @include('layouts.components.end')
-
