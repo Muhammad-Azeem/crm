@@ -26,9 +26,15 @@ class InstallerSeeder extends Seeder
 
         /************************ Permissions  *****************************/
         $addForm = Permission::firstOrCreate(['name' => 'add-form']);
+        $showForm = Permission::firstOrCreate(['name' => 'show-form']);
+
         $addManager = Permission::firstOrCreate(['name' => 'add-manager']);
         $addSupervisor = Permission::firstOrCreate(['name' => 'add-supervisor']);
         $addCustomer = Permission::firstOrCreate(['name' => 'add-customer']);
+
+        $viewSupervisor = Permission::firstOrCreate(['name' => 'view-supervisor']);
+        $viewSemiAdmin = Permission::firstOrCreate(['name' => 'view-semiadmin']);
+        $viewCustomer = Permission::firstOrCreate(['name' => 'view-customer']);
 
         /************************ Create Admin  *****************************/
         $user = User::firstOrCreate(['id' => 1],[
@@ -41,10 +47,10 @@ class InstallerSeeder extends Seeder
         $user->assignRole('admin');
         /************************ Assign Permission to Roles  *****************************/
 
-        $admin->givePermissionTo([$addForm, $addManager, $addSupervisor, $addCustomer]);
-        $manager->givePermissionTo([$addForm, $addSupervisor, $addCustomer]);
-        $supervisor->givePermissionTo([$addForm, $addCustomer]);
-        $customer->givePermissionTo([$addForm]);
+        $admin->givePermissionTo([$showForm ,$addManager, $addSupervisor, $addCustomer , $viewCustomer,$viewSemiAdmin,$viewSupervisor]);
+        $manager->givePermissionTo([$showForm , $addSupervisor, $addCustomer , $viewSupervisor,$viewCustomer]);
+        $supervisor->givePermissionTo([$showForm , $addCustomer , $viewCustomer]);
+        $customer->givePermissionTo([$showForm ,$addForm]);
 
     }
 }
