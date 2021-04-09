@@ -24,7 +24,7 @@
                 <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover"><a href="javascript:;" class="kt-menu__link kt-menu__toggle"><i class="kt-menu__link-icon flaticon2-telegram-logo"></i><span class="kt-menu__link-text">Applications</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
                     <div class="kt-menu__submenu "><span class="kt-menu__arrow"></span>
                         <ul class="kt-menu__subnav">
-                            <li class="kt-menu__item  kt-menu__item--parent" aria-haspopup="true"><span class="kt-menu__link"><span class="kt-menu__link-text">Applications</span></span></li>
+                            {{-- <li class="kt-menu__item  kt-menu__item--parent" aria-haspopup="true"><span class="kt-menu__link"><span class="kt-menu__link-text">Applications</span></span></li> --}}
 {{--                            <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover"><a href="javascript:;" class="kt-menu__link kt-menu__toggle"><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">Users</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>--}}
 {{--                                <div class="kt-menu__submenu "><span class="kt-menu__arrow"></span>--}}
 {{--                                    <ul class="kt-menu__subnav">--}}
@@ -57,14 +57,12 @@
                 <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"><a href="{{url('/supervisor-listing')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-users"></i><span class="kt-menu__link-text">Supervisor</span></a></li>
             @endcan
             @can('view-customer')
-                <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"><a href="{{url('/employee-listing')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-users"></i><span class="kt-menu__link-text">Employees</span></a></li>
-            @endcan
-                @can('add-form')
-                <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"><a href="{{route('employee.forms.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-users"></i><span class="kt-menu__link-text">Forms</span></a></li>
-                @endcan
-            @can('show-form')
-                    <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"><a href="{{url('/show-form')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-users"></i><span class="kt-menu__link-text">Show Form</span></a></li>
+                <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"><a href="{{route('supervisor.employee.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-users"></i><span class="kt-menu__link-text">Employees</span></a></li>
 
+                <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"><a href="{{route('supervisor.forms.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-users"></i><span class="kt-menu__link-text">Show Forms</span></a></li>
+            @endcan
+            @can('add-form')
+            <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"><a href="{{route('employee.forms.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-users"></i><span class="kt-menu__link-text">Forms</span></a></li>
             @endcan
             </ul>
         </div>

@@ -27,4 +27,20 @@ class Form extends Model
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
+
+    public function statusColor()
+    {
+        $statusColor = [
+            'pending' => 'primary',
+            'approved' => 'success',
+            'rejected' => 'danger',
+        ];
+
+        return $statusColor[$this->status] ?? 'info';
+    }
+
+    public function isApproved()
+    {
+        return $this->status === 'approved';
+    }
 }

@@ -109,7 +109,6 @@
                                             <th>Agent Name</th>
                                             <th>Customer Name</th>
                                             <th>Company Name</th>
-                                            <th>Sevice Type</th>
                                             <th>Billing Number</th>
                                             <th>Status</th>
                                             <th>Receivable</th>
@@ -123,7 +122,6 @@
                                             <td>{{ $form->agent_name  ?? ''}}</td>
                                             <td>{{ $form->customer_name  ?? ''}}</td>
                                             <td>{{ $form->company_name  ?? ''}}</td>
-                                            <td>{{ $form->sevice_type ?? ''}}</td>
                                             <td>{{ $form->billing_ac_number ?? ''}}</td>
                                             <td>
                                                 <span class="kt-badge  kt-badge--{{ $form->statusColor() }} kt-badge--inline kt-badge--pill">{{ $form->status }}</span>
@@ -131,11 +129,17 @@
                                             <td>{{ $form->receivable ?? ''}}</td>
                                             <td>
                                                 <div class="kt-widget__action">
-                                                    <button type="button" class="btn btn-sm btn-upper" style="background: #edeff6">View</button>&nbsp;
+                                                    {{-- <button type="button" class="btn btn-sm btn-upper" style="background: #edeff6">View</button>&nbsp; --}}
                                                     @if(!now()->gt($form->comment_disable_time))
                                                     <button type="button" onclick="event.preventDefault();addComment(this);"class="btn btn-bold btn-label-brand btn-sm" data-form="{{ $form->id }}">Add Comment</button>
                                                     @endif
-                                                    <a type="button" href="{{ route('form.comments.show',['form' => $form->id]) }}" class="btn btn-brand btn-sm btn-upper">Comments</a>
+                                                    <a type="button" href="{{ route('supervisor.form.comments.index',['form' => $form->id]) }}" class="btn btn-brand btn-sm btn-upper">Comments</a>
+
+                                                    <button type="button" onclick="event.preventDefault();addComment(this);"class="btn btn-bold btn-label-brand btn-sm" data-form="{{ $form->id}}">Add Comment</button>
+
+                                                    <button type="button" onclick="event.preventDefault();updateStatus(this);"class="btn btn-bold btn-label-brand btn-sm" data-route="{{route('supervisor.employee.form.update.status',$form->id)}}">Update Status</button>
+
+
                                                 </div>
                                             </td>
                                         </tr>
@@ -162,7 +166,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     </button>
                 </div>
-                <form action="{{ route('form.comments.store') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('supervisor.form.comments.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                 <div class="modal-body">
                         <div class="form-group">
@@ -183,7 +187,35 @@
             </div>
         </div>
     </div>
-
+    <div class="modal fade" id="update-form-status-5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Update Status</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    </button>
+                </div>
+                <form action="#" method="post" id="update-form-status-employee" enctype="multipart/form-data">
+                    @csrf
+                    @method('put')
+                <div class="modal-body">
+                        <div class="form-group">
+                            <label for="recipient-name" class="form-control-label">Status</label>
+                            <select  name="status" class="form-control" id="recipient-name">
+                                <option value="pending">Pending</option>
+                                <option value="approved">Approved</option>
+                                <option value="rejected">rejected</option>
+                            </select>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">update Status</button>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
 @endsection
 @section('javascript')
 <script>
@@ -191,6 +223,12 @@
         const form = $(event).data('form');
         $("#comment-related-form").val(form);
         $("#kt_modal_4").modal('show');
+    }
+
+    function updateStatus(event){
+       const route = $(event).data('route');
+       $('#update-form-status-employee').attr('action',route);
+       $('#update-form-status-5').modal('show');
     }
 </script>
 @endsection

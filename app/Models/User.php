@@ -49,6 +49,10 @@ class User extends Authenticatable
         if ($this->hasRole('customer')) {
             return $this->hasMany(Form::class, 'user_id', 'id');
         }
+
+        if ($this->hasRole('supervisor')) {
+            return $this->hasMany(Form::class, 'parent_id', 'id');
+        }
     }
 
     public function employees()
@@ -70,5 +74,10 @@ class User extends Authenticatable
         if ($this->hasRole('customer')) {
             return $this->belongsTo(User::class, 'parent_id', 'id');
         }
+    }
+
+    public function getFullNameAttribute()
+    {
+        return $this->attributes['f_name'] . ' ' . $this->attributes['l_name'];
     }
 }

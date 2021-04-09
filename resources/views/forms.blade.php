@@ -301,7 +301,7 @@
     <!--end::Global Theme Bundle -->
 
     <!--begin::Page Scripts(used by this page) -->
-    <script src="assets/js/pages/custom/user/add-user.js" type="text/javascript"></script>
+    {{-- <script src="assets/js/pages/custom/user/add-user.js" type="text/javascript"></script> --}}
 
     <!--end::Page Scripts -->
     </body>

@@ -37,20 +37,20 @@ class InstallerSeeder extends Seeder
         $viewCustomer = Permission::firstOrCreate(['name' => 'view-customer']);
 
         /************************ Create Admin  *****************************/
-        $user = User::firstOrCreate(['id' => 1],[
-            'f_name' => 'Admin',
-            'email' => 'superadmin@crm.com',
-            'password' => Hash::make('admin123.'),
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-        ]);
+        // $user = User::firstOrCreate(['id' => 1], [
+        //     'f_name' => 'Admin',
+        //     'email' => 'superadmin@crm.com',
+        //     'password' => Hash::make('admin123.'),
+        //     'created_at' => Carbon::now(),
+        //     'updated_at' => Carbon::now(),
+        // ]);
+        $user = User::find(1);
         $user->assignRole('admin');
         /************************ Assign Permission to Roles  *****************************/
 
-        $admin->givePermissionTo([$showForm ,$addManager, $addSupervisor, $addCustomer , $viewCustomer,$viewSemiAdmin,$viewSupervisor]);
-        $manager->givePermissionTo([$showForm , $addSupervisor, $addCustomer , $viewSupervisor,$viewCustomer]);
-        $supervisor->givePermissionTo([$showForm , $addCustomer , $viewCustomer]);
-        $customer->givePermissionTo([$showForm ,$addForm]);
-
+        $admin->givePermissionTo([$showForm->name, $addManager->name, $addSupervisor->name, $addCustomer->name, $viewCustomer->name, $viewSemiAdmin->name, $viewSupervisor->name]);
+        $manager->givePermissionTo([$addSupervisor->name, $addCustomer->name, $viewSupervisor->name]);
+        $supervisor->givePermissionTo([$showForm->name, $addCustomer->name, $viewCustomer->name]);
+        $customer->givePermissionTo([$showForm->name, $addForm->name]);
     }
 }
