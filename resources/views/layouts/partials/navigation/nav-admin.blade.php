@@ -24,7 +24,7 @@
                 <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover"><a href="javascript:;" class="kt-menu__link kt-menu__toggle"><i class="kt-menu__link-icon flaticon2-telegram-logo"></i><span class="kt-menu__link-text">Applications</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
                     <div class="kt-menu__submenu "><span class="kt-menu__arrow"></span>
                         <ul class="kt-menu__subnav">
-                            <li class="kt-menu__item  kt-menu__item--parent" aria-haspopup="true"><span class="kt-menu__link"><span class="kt-menu__link-text">Applications</span></span></li>
+                            {{-- <li class="kt-menu__item  kt-menu__item--parent" aria-haspopup="true"><span class="kt-menu__link"><span class="kt-menu__link-text">Applications</span></span></li> --}}
 {{--                            <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover"><a href="javascript:;" class="kt-menu__link kt-menu__toggle"><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">Users</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>--}}
 {{--                                <div class="kt-menu__submenu "><span class="kt-menu__arrow"></span>--}}
 {{--                                    <ul class="kt-menu__subnav">--}}
@@ -49,23 +49,21 @@
                         </ul>
                     </div>
                 </li>
-                <?php
-                $role_id = DB::table('model_has_roles')->where('model_id' , auth()->user()->id)->pluck('role_id')->first();
-                $permissions = DB::table('roles')->where('id' ,$role_id )->pluck('name')->first();
-                ?>
 
-{{--                @if( $permissions == 'admin'  )--}}
+            @can('view-semiadmin')
                 <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"><a href="{{url('/semi-admin-listing')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-users"></i><span class="kt-menu__link-text">Semi Admin</span></a></li>
-{{--                    @if($permissions == 'manager' || $permissions == 'admin'  )--}}
-                    <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"><a href="{{url('/supervisor-listing')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-users"></i><span class="kt-menu__link-text">Supervisor</span></a></li>
-{{--                    @endif--}}
-{{--                        @if($permissions == 'manager' || $permissions == 'admin' || $permissions == 'supervisor' )--}}
+            @endcan
+            @can('view-supervisor')
+                <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"><a href="{{url('/supervisor-listing')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-users"></i><span class="kt-menu__link-text">Supervisor</span></a></li>
+            @endcan
+            @can('view-customer')
+                <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"><a href="{{route('supervisor.employee.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-users"></i><span class="kt-menu__link-text">Employees</span></a></li>
 
-                        <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"><a href="{{url('/employee-listing')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-users"></i><span class="kt-menu__link-text">Employees</span></a></li>
-{{--                        @endif--}}
-
-
-{{--                @endif--}}
+                <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"><a href="{{route('supervisor.forms.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-users"></i><span class="kt-menu__link-text">Show Forms</span></a></li>
+            @endcan
+            @can('add-form')
+            <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"><a href="{{route('employee.forms.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-users"></i><span class="kt-menu__link-text">Forms</span></a></li>
+            @endcan
             </ul>
         </div>
     </div>

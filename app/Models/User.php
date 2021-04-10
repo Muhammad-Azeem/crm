@@ -17,12 +17,12 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $guarded=[''];
-//    protected $fillable = [
-//        'name',
-//        'email',
-//        'password',
-//    ];
+    protected $guarded = [''];
+    //    protected $fillable = [
+    //        'name',
+    //        'email',
+    //        'password',
+    //    ];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -42,4 +42,42 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function forms()
+    {
+        if ($this->hasRole('customer')) {
+            return $this->hasMany(Form::class, 'user_id', 'id');
+        }
+
+        if ($this->hasRole('supervisor')) {
+            return $this->hasMany(Form::class, 'parent_id', 'id');
+        }
+    }
+
+    public function employees()
+    {
+        if ($this->hasRole('supervisor')) {
+            return $this->hasMany(User::class, 'parent_id', 'id');
+        }
+    }
+
+    public function supervisors()
+    {
+        if ($this->hasRole('manager')) {
+            return $this->hasMany(User::class, 'parent_id', 'id');
+        }
+    }
+
+    public function supervisor()
+    {
+        if ($this->hasRole('customer')) {
+            return $this->belongsTo(User::class, 'parent_id', 'id');
+        }
+    }
+
+    public function getFullNameAttribute()
+    {
+        return $this->attributes['f_name'] . ' ' . $this->attributes['l_name'];
+    }
 }

@@ -178,15 +178,15 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                @if( $user_type == 'Customer')
+                                                @if( $user_permission == 'customer')
                                                 <div class="form-group row">
                                                     <label class="col-xl-3 col-lg-3 col-form-label">Time Slots</label>
                                                     <div class="col-lg-9 col-xl-6">
-                                                        <select class="form-control" name="time_slots">
-                                                            <option>Select Timings</option>
-                                                            <option value="9am-6pm">9am - 6pm</option>
-                                                            <option value="10am-7pm">10am - 7pm</option>
-                                                            <option value="11am-8pm">11am - 8pm</option>
+                                                        <select class="form-control" required name="timeSlot_1">
+                                                            <option value="">Select Time Slot</option>
+                                                            <option value="9-6">9am - 6pm</option>
+                                                            <option value="10-7">10am - 7pm</option>
+                                                            <option value="11-8">11am - 8pm</option>
                                                         </select>
                                                     </div>
                                                 </div>

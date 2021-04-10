@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\SemiAdmin;
 
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\File;
 
 use App\Models\User;
@@ -17,15 +18,16 @@ class SemiAdminController extends Controller
         $curr_user = 'Semi Admin';
         $curr_user_permission = 'manager';
         $filterRole = '0';
+        $canSelect = 'Admin';
 
         $data = User::whereHas("roles", function ($q) use ($curr_user_permission) {
             $q->where("name", $curr_user_permission);
         })->get();
         $count=count($data);
-        return view('managers.index', compact('data','count' , 'curr_user' ,'filterRole', 'curr_user_permission'));
+        return view('managers.index', compact('data','count' ,'canSelect', 'curr_user' ,'filterRole', 'curr_user_permission'));
     }
     public function addSemiAdmin($role = '' , $type = '', $filerRole=false ){
-
+//        dd($role);
         $user_type = $type;
         $user_permission = $role;
         $users = false;
@@ -45,12 +47,12 @@ class SemiAdminController extends Controller
     }
     public function storeSemiAdmin(Request $request){
 
+//dd(Carbon::now('PST'));
+//dd($request['timeSlot_1']);
 
-//dd($request->all());
- if($request['profile_picture'] ){
+if($request['profile_picture'] ){
      $ext = explode('/', mime_content_type($request['profile_picture']))[1];
      $img = $request['profile_picture'];
-
      $file_name = 'image_'.time().'.jpg';
      @list($type, $img) = explode(';', $img);
      @list(, $img)      = explode(',', $img);
