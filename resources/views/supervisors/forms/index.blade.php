@@ -135,8 +135,6 @@
                                                     @endif
                                                     <a type="button" href="{{ route('supervisor.form.comments.index',['form' => $form->id]) }}" class="btn btn-brand btn-sm btn-upper">Comments</a>
 
-                                                    <button type="button" onclick="event.preventDefault();addComment(this);"class="btn btn-bold btn-label-brand btn-sm" data-form="{{ $form->id}}">Add Comment</button>
-
                                                     <button type="button" onclick="event.preventDefault();updateStatus(this);"class="btn btn-bold btn-label-brand btn-sm" data-route="{{route('supervisor.employee.form.update.status',$form->id)}}">Update Status</button>
 
 

@@ -37,14 +37,14 @@ class InstallerSeeder extends Seeder
         $viewCustomer = Permission::firstOrCreate(['name' => 'view-customer']);
 
         /************************ Create Admin  *****************************/
-        // $user = User::firstOrCreate(['id' => 1], [
-        //     'f_name' => 'Admin',
-        //     'email' => 'superadmin@crm.com',
-        //     'password' => Hash::make('admin123.'),
-        //     'created_at' => Carbon::now(),
-        //     'updated_at' => Carbon::now(),
-        // ]);
-        $user = User::find(1);
+        $user = User::firstOrCreate(['id' => 1], [
+            'f_name' => 'Admin',
+            'email' => 'superadmin@crm.com',
+            'password' => Hash::make('admin123.'),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
         $user->assignRole('admin');
         /************************ Assign Permission to Roles  *****************************/
 

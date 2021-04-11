@@ -61,14 +61,14 @@ class FormController extends Controller
     public function index()
     {
 
-        $forms = Auth::user()->forms;
+        $forms = Auth::user()->forms()->get();
 
         return view('supervisors.forms.index', compact('forms'));
     }
 
     public function forms(User $employee)
     {
-        $forms = $employee->forms;
+        $forms = $employee->forms()->get();
 
         return view('supervisors.forms.index', compact('forms'));
     }

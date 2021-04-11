@@ -23,7 +23,7 @@
                     {{--									    		Alex Stone </span>--}}
                     {{--                </div>--}}
                 </div>
-                @include('includes.messages')
+
                 <div class="kt-subheader__toolbar">
                     {{--                <a href="#" class="btn btn-default btn-bold">--}}
                     {{--                    Back </a>--}}

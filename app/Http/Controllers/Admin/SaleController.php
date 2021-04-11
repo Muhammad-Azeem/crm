@@ -19,11 +19,6 @@ class SaleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct()
-    {
-        $this->middleware('permission:add-form')->only('store');
-        $this->middleware('permission:show-form')->only('index');
-    }
 
     public function index()
     {

@@ -75,10 +75,6 @@
                     </div>
                 </div>
                 <div class="kt-subheader__toolbar">
-                    <a href="#" class="">
-                    </a>
-                    <a href="{{route('employee.forms.create')}}" class="btn btn-label-brand btn-bold">
-                        Add Form </a>
                 </div>
             </div>
         </div>
@@ -129,11 +125,7 @@
                                             <td>{{ $form->receivable ?? ''}}</td>
                                             <td>
                                                 <div class="kt-widget__action">
-                                                    <button type="button" class="btn btn-sm btn-upper" style="background: #edeff6">View</button>&nbsp;
-                                                    @if(!now()->gt($form->comment_disable_time))
-                                                    <button type="button" onclick="event.preventDefault();addComment(this);"class="btn btn-bold btn-label-brand btn-sm" data-form="{{ $form->id }}">Add Comment</button>
-                                                    @endif
-                                                    <a type="button" href="{{ route('employee.form.comments.show',['form' => $form->id]) }}" class="btn btn-brand btn-sm btn-upper">Comments</a>
+                                                    <a type="button" href="#" class="btn btn-brand btn-sm btn-upper">Detial</a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -143,7 +135,7 @@
                             </div>
                             @else
                             <div class="alert alert-info" role="alert">
-                                <div class="alert-text"> Sorry you did not add any form yet.</div>
+                                <div class="alert-text"> Sorry This Employee has not any approved form yet.</div>
                             </div>
                             @endif
                         </div>
@@ -152,43 +144,6 @@
             </div>
     </div>
 
-    <div class="modal fade" id="kt_modal_4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    </button>
-                </div>
-                <form action="{{ route('employee.form.comments.store') }}" method="post" enctype="multipart/form-data">
-                    @csrf
-                <div class="modal-body">
-                        <div class="form-group">
-                            <label for="recipient-name" class="form-control-label">File:</label>
-                            <input type="file" name="file" class="form-control" id="recipient-name">
-                        </div>
-                        <div class="form-group">
-                            <label for="message-text" class="form-control-label">Message:</label>
-                            <textarea class="form-control" name="comment" id="message-text"></textarea>
-                        </div>
-                        <input type="hidden" class="form-control" name="form" id="comment-related-form" value="">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Send Comment</button>
-                </div>
-            </form>
-            </div>
-        </div>
-    </div>
-
 @endsection
 @section('javascript')
-<script>
-    function addComment(event){
-        const form = $(event).data('form');
-        $("#comment-related-form").val(form);
-        $("#kt_modal_4").modal('show');
-    }
-</script>
 @endsection

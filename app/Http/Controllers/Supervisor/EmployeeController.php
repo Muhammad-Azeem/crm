@@ -59,6 +59,6 @@ class EmployeeController extends Controller
 
         $count = count($data);
 
-        return view('managers.index', compact('data', 'count', 'canSelect', 'curr_user', 'filterRole', 'curr_user_permission'));
+        return view('supervisors.index', compact('data', 'count', 'canSelect', 'curr_user', 'filterRole', 'curr_user_permission'));
     }
 }

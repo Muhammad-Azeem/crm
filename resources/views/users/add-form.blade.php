@@ -87,7 +87,7 @@
                             <div class="kt-grid__item kt-grid__item--fluid kt-wizard-v4__wrapper">
 
                                 <!--begin: Form Wizard Form-->
-                                <form action="{{ route('add-form.store') }}" id="employee-form-store" method="post" enctype="multipart/form-data" class="kt-form">
+                                <form action="{{ route('employee.forms.store') }}" id="employee-form-store" method="post" enctype="multipart/form-data" class="kt-form">
                                 @csrf
 
                                 <!--begin: Form Wizard Step 2-->

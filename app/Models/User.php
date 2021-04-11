@@ -80,4 +80,14 @@ class User extends Authenticatable
     {
         return $this->attributes['f_name'] . ' ' . $this->attributes['l_name'];
     }
+
+    //only for semi-admin.
+    public function getFormsAttribute()
+    {
+        $supervisors = $this->supervisors->pluck('id');
+        $employees = User::select('id')->whereIn('parent_id', $supervisors)->get()->pluck('id');
+        $forms = Form::where('status', 'approved')->whereIn('user_id', $employees)->get();
+
+        return $forms;
+    }
 }
