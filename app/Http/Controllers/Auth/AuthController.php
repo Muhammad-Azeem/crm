@@ -27,9 +27,22 @@ class AuthController extends Controller
 
             return Redirect::to(URL::previous())->with('error', $validator->messages()->first());
         }
+
+
         $email = User::where('email', $request->email)->first();
         if ($email) {
             if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+
+                if(Auth::user()->hasrole('admin')){
+                    return redirect()->route('admin.dashboard') ;
+                }
+                if(Auth::user()->hasrole('manager')){
+                    return redirect()->route('manager.dashboard') ;
+                }
+                if(Auth::user()->hasrole('supervisor')){
+                    return redirect()->route('supervisor.dashboard') ;
+                }
+
 
                 return \redirect(\url('/main-view'))->with('Success', 'LoggedIn Successfully');
             } else {

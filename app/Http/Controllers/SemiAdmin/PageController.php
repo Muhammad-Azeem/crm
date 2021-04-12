@@ -10,9 +10,8 @@ class PageController extends Controller
 {
     public function dashboard()
     {
-        return view();
+        return view('semi-admin.dashboard');
     }
-
 
     public function forms()
     {
