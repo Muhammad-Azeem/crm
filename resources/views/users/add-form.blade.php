@@ -103,7 +103,8 @@
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
-                                                                <label class="col-xl-3 col-lg-3 col-form-label">Profile Pic</label>
+                                                                <label class="col-xl-3 col-lg-3 col-form-label @error('profile_pic') text-danger @enderror">Profile Pic<span
+                                                                class="text-red">*</span></label>
                                                                 <div class="col-lg-9 col-xl-6">
                                                                     <div class="kt-avatar kt-avatar--outline" id="kt_user_add_avatar">
                                                                         <div class="kt-avatar__holder" style="background-image: url(assets/media/users/300_10.jpg)"></div>
@@ -117,115 +118,175 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="form-group row">
-                                                                <label class="col-xl-3 col-lg-3 col-form-label">DATE:</label>
+                                                             <div class="form-group row">
+                                                                <label class="col-xl-3 col-lg-3 col-form-label @error('date') text-danger @enderror">DATE:<span
+                                                                class="text-red">*</span></label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="date" name="date" id="" >
+                                                                    <input class="form-control @error('date') border-danger @enderror" type="date" name="date" id="" value="{{old('date')}}" >
+                                                                    @error('date')
+                                                                    <div class="alert alert-danger mt-2">{{ $message }}</div>
+                                                                    @enderror
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
-                                                                <label class="col-xl-3 col-lg-3 col-form-label">T.L. NAME:</label>
+                                                                <label class="col-xl-3 col-lg-3 col-form-label @error('tl_name') text-danger @enderror">T.L. NAME:<span
+                                                                class="text-red">*</span></label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="text" name="tl_name" id="" placeholder="Please Enter T.L Name">
+                                                                    <input class="form-control @error('tl_name') border-danger @enderror" type="text" name="tl_name" id="" value="{{old('tl_name')}}" placeholder="Please Enter T.L Name">
+                                                                    @error('tl_name')
+                                                                    <div class="alert alert-danger mt-2">{{ $message }}</div>
+                                                                    @enderror
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
-                                                                <label class="col-xl-3 col-lg-3 col-form-label">AGENT NAME:</label>
+                                                                <label class="col-xl-3 col-lg-3 col-form-label @error('agent_name') text-danger @enderror">AGENT NAME:<span
+                                                                class="text-red">*</span></label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="text" name="agent_name" id="" placeholder="Please Enter Agent Name">
+                                                                    <input class="form-control @error('agent_name') border-danger @enderror" type="text" name="agent_name" id="" value="{{old('agent_name')}}" placeholder="Please Enter Agent Name">
+                                                                    @error('agent_name')
+                                                                    <div class="alert alert-danger mt-2">{{ $message }}</div>
+                                                                    @enderror
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
-                                                                <label class="col-xl-3 col-lg-3 col-form-label">CUSTOMER'S NAME:</label>
+                                                                <label class="col-xl-3 col-lg-3 col-form-label @error('customer_name') text-danger @enderror">CUSTOMER'S NAME:<span
+                                                                class="text-red">*</span></label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="text" name="customer_name" id="" placeholder="Please Enter Customer Name">
+                                                                    <input class="form-control @error('customer_name') border-danger @enderror" type="text" name="customer_name" id="" value="{{old('customer_name')}}" placeholder="Please Enter Customer Name">
+                                                                    @error('customer_name')
+                                                                    <div class="alert alert-danger mt-2">{{ $message }}</div>
+                                                                    @enderror
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
-                                                                <label class="col-xl-3 col-lg-3 col-form-label">COMPANY'S NAME::</label>
+                                                                <label class="col-xl-3 col-lg-3 col-form-label @error('company_name') text-danger @enderror">COMPANY NAME:</label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="text" name="company_name" id="" placeholder="Please Enter Company Name">
+                                                                    <input class="form-control @error('company_name') border-danger @enderror" type="text" name="company_name" id="" value="{{old('company_name')}}" placeholder="Please Enter Company Name">
+                                                                    @error('company_name')
+                                                                    <div class="alert alert-danger mt-2">{{ $message }}</div>
+                                                                    @enderror
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
-                                                                <label class="col-xl-3 col-lg-3 col-form-label">CELL PHONE:</label>
+                                                                <label class="col-xl-3 col-lg-3 col-form-label @error('cell_phone') text-danger @enderror">CELL PHONE:<span
+                                                                class="text-red">*</span></label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="text" name="cell_phone" id="" placeholder="+923054812545">
+                                                                    <input class="form-control @error('cell_phone') border-danger @enderror" type="text" name="cell_phone" id="" value="{{old('cell_phone')}}" placeholder="+923054812545">
+                                                                    @error('cell_phone')
+                                                                    <div class="alert alert-danger mt-2">{{ $message }}</div>
+                                                                    @enderror
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
-                                                                <label class="col-xl-3 col-lg-3 col-form-label">HOME PHONE:</label>
+                                                                <label class="col-xl-3 col-lg-3 col-form-label @error('home_phone') text-danger @enderror">HOME PHONE:</label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="text" name="home_phone" id="" placeholder="0424007460">
+                                                                    <input class="form-control @error('home_phone') border-danger @enderror" type="text" name="home_phone" id="" value="{{old('home_phone')}}" placeholder="0424007460">
+                                                                    @error('home_phone')
+                                                                    <div class="alert alert-danger mt-2">{{ $message }}</div>
+                                                                    @enderror
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
-                                                                <label class="col-xl-3 col-lg-3 col-form-label">CUSTOMER'S EMAIL :</label>
+                                                                <label class="col-xl-3 col-lg-3 col-form-label @error('customer_email') text-danger @enderror">CUSTOMER'S EMAIL :</label>
                                                                 <div class="col-lg-9 col-xl-9">
                                                                     <div class="input-group">
                                                                         <div class="input-group-prepend"><span class="input-group-text"><i class="la la-at"></i></span></div>
-                                                                        <input type="text" class="form-control" name="customer_email"  placeholder="customeremail@gmail.com" aria-describedby="basic-addon1">
+                                                                        <input type="text" class="form-control @error('customer_email') border-danger @enderror"  name="customer_email" value="{{old('customer_email')}}"  placeholder="customeremail@gmail.com" aria-describedby="basic-addon1">
+                                                                        @error('customer_email')
+                                                                        <div class="alert alert-danger mt-2">{{ $message }}</div>
+                                                                        @enderror
                                                                     </div>
                                                                     <span class="form-text text-muted">Email will not be publicly displayed. <a href="#" class="kt-link">Learn more</a>.</span>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
-                                                                <label class="col-xl-3 col-lg-3 col-form-label">SERVICE TYPE:</label>
+                                                                <label class="col-xl-3 col-lg-3 col-form-label @error('service_type') text-danger @enderror">SERVICE TYPE:<span
+                                                                class="text-red">*</span></label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="text" name="service_type" id="" value="Please Enter Your Service Type" >
+                                                                    <input class="form-control @error('service_type') border-danger @enderror" type="text" name="service_type" id="" value="{{old('service_type')}}" placeholder="Please Enter Your Service Type" >
+                                                                    @error('service_type')
+                                                                    <div class="alert alert-danger mt-2">{{ $message }}</div>
+                                                                    @enderror
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
-                                                                <label class="col-xl-3 col-lg-3 col-form-label">BILLING AC:</label>
+                                                                <label class="col-xl-3 col-lg-3 col-form-label @error('billing_ac_number') text-danger @enderror">BILLING AC:<span
+                                                                class="text-red">*</span></label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="text" name="billing_ac_number" id="" value="Please Enter Your Billing AC" >
+                                                                    <input class="form-control @error('billing_ac_number') border-danger @enderror" type="text" name="billing_ac_number" id="" value="{{old('billing_ac_number')}}" placeholder="Please Enter Your Billing AC" >
+                                                                    @error('billing_ac_number')
+                                                                    <div class="alert alert-danger mt-2">{{ $message }}</div>
+                                                                    @enderror
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
-                                                                <label class="col-xl-3 col-lg-3 col-form-label">REFERENCE :</label>
+                                                                <label class="col-xl-3 col-lg-3 col-form-label @error('reference') text-danger @enderror">REFERENCE :</label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="text" name="reference" id="" value="Please Enter Your Reference" >
+                                                                    <input class="form-control @error('reference') border-danger @enderror" type="text" name="reference" id="" value="{{old('reference')}}" placeholder="Please Enter Your Reference" >
+                                                                    @error('reference')
+                                                                    <div class="alert alert-danger mt-2">{{ $message }}</div>
+                                                                    @enderror
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
-                                                                <label class="col-xl-3 col-lg-3 col-form-label">SSN :</label>
+                                                                <label class="col-xl-3 col-lg-3 col-form-label @error('ssn') text-danger @enderror">SSN :</label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="text" name="ssn" id="" value="Please Enter Your SSN" >
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="form-group row">
-                                                                <label class="col-xl-3 col-lg-3 col-form-label">DOB :</label>
-                                                                <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="date" name="dob" id="" value="Please Enter Your Date of Birth" >
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="form-group row">
-                                                                <label class="col-xl-3 col-lg-3 col-form-label">PER MONTH :</label>
-                                                                <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="text" name="per_month" id="" value="Please Enter Your Per Month" >
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="form-group row">
-                                                                <label class="col-xl-3 col-lg-3 col-form-label">TOTAL TO PAY :</label>
-                                                                <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="text" name="total_to_pay" id="" value="Please Enter Your Total to Pay" >
+                                                                    <input class="form-control @error('ssn') border-danger @enderror" type="text" name="ssn" id="" value="{{old('ssn')}}" placeholder="Please Enter Your SSN" >
+                                                                    @error('ssn')
+                                                                    <div class="alert alert-danger mt-2">{{ $message }}</div>
+                                                                    @enderror
                                                                 </div>
                                                             </div>
 
                                                             <div class="form-group row">
-                                                                <label class="col-xl-3 col-lg-3 col-form-label">RECEIVABLE :</label>
+                                                                <label class="col-xl-3 col-lg-3 col-form-label @error('dob') text-danger @enderror">DOB :</label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="text" name="receivable" id="" value="Please Enter Your Receivable" >
+                                                                    <input class="form-control @error('dob') border-danger @enderror" type="date" name="dob" id="" value="{{old('dob')}}" placeholder="Please Enter Your Date of Birth" >
+                                                                    @error('dob')
+                                                                    <div class="alert alert-danger mt-2">{{ $message }}</div>
+                                                                    @enderror
                                                                 </div>
                                                             </div>
 
                                                             <div class="form-group row">
-                                                                <label class="col-xl-3 col-lg-3 col-form-label">REMARKS & COMMENTS :</label>
+                                                                <label class="col-xl-3 col-lg-3 col-form-label @error('per_month') text-danger @enderror">PER MONTH :</label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="text" name="comment" id="" value="Please Enter Your Remarks & Comments" >
+                                                                    <input class="form-control @error('per_month') border-danger @enderror" type="text" name="per_month" id="" value="{{old('per_month')}}" placeholder="Please Enter Your Per Month" >
+                                                                    @error('per_month')
+                                                                    <div class="alert alert-danger mt-2">{{ $message }}</div>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row">
+                                                                <label class="col-xl-3 col-lg-3 col-form-label @error('total_to_pay') text-danger @enderror">TOTAL TO PAY :<span
+                                                                class="text-red">*</span></label>
+                                                                <div class="col-lg-9 col-xl-9">
+                                                                    <input class="form-control @error('total_to_pay') border-danger @enderror" type="text" name="total_to_pay" id="" value="{{old('total_to_pay')}}" placeholder="Please Enter Your Total to Pay" >
+                                                                    @error('total_to_pay')
+                                                                    <div class="alert alert-danger mt-2">{{ $message }}</div>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row">
+                                                                <label class="col-xl-3 col-lg-3 col-form-label   @error('receivable') text-danger @enderror">RECEIVABLE :<span
+                                                                class="text-red">*</span></label>
+                                                                <div class="col-lg-9 col-xl-9">
+                                                                    <input class="form-control   @error('receivable') border-danger @enderror" type="text" name="receivable" id="" value="{{old('receivable')}}" placeholder="Please Enter Your Receivable" >
+                                                                    @error('receivable') 
+                                                                    <div class="alert alert-danger mt-2">{{ $message }}</div>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row">
+                                                                <label class="col-xl-3 col-lg-3 col-form-label @error('comment') text-danger @enderror">REMARKS & COMMENTS :</label>
+                                                                <div class="col-lg-9 col-xl-9">
+                                                                    <input class="form-control @error('comment') border-danger @enderror" type="text" name="comment" id="" value="{{old('comment')}}" placeholder="Please Enter Your Remarks & Comments" >
+                                                                    @error('comment')
+                                                                    <div class="alert alert-danger mt-2">{{ $message }}</div>
+                                                                    @enderror
                                                                 </div>
                                                             </div>
                                                             <div class="kt-separator kt-separator--border-dashed kt-separator--portlet-fit kt-separator--space-lg"></div>
@@ -235,17 +296,17 @@
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
-                                                                <label class="col-xl-3 col-lg-3 col-form-label">Login verification</label>
+                                                                <label class="col-xl-3 col-lg-3 col-form-label ">Login verification</label>
                                                                 <div class="col-lg-9 col-xl-6">
                                                                     <button type="button" class="btn btn-label-brand btn-bold btn-sm kt-margin-t-5 kt-margin-b-5">Setup login verification</button>
                                                                     <span class="form-text text-muted">
-																						After you log in, you will be asked for additional information to confirm your identity and protect your account from being compromised.
-																						<a href="#" class="kt-link">Learn more</a>.
-																					</span>
+                                                                        After you log in, you will be asked for additional information to confirm your identity and protect your account from being compromised.
+                                                                        <a href="#" class="kt-link">Learn more</a>.
+                                                                    </span>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
-                                                                <label class="col-xl-3 col-lg-3 col-form-label">Password reset verification</label>
+                                                                <label class="col-xl-3 col-lg-3 col-form-label ">Password reset verification</label>
                                                                 <div class="col-lg-9 col-xl-6">
                                                                     <div class="kt-checkbox-single">
                                                                         <label class="kt-checkbox">
@@ -260,7 +321,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row kt-margin-t-10 kt-margin-b-10">
-                                                                <label class="col-xl-3 col-lg-3 col-form-label"></label>
+                                                                <label class="col-xl-3 col-lg-3 col-form-label "></label>
                                                                 <div class="col-lg-9 col-xl-6">
                                                                     <button type="button" class="btn btn-label-danger btn-bold btn-sm kt-margin-t-5 kt-margin-b-5">Deactivate your account ?</button>
                                                                 </div>
@@ -280,22 +341,31 @@
                                         <div class="kt-form__section kt-form__section--first">
                                             <div class="kt-wizard-v4__form">
                                                 <div class="form-group">
-                                                    <label>COMPLETE ADDRESS</label>
-                                                    <input type="text" class="form-control" name="complete_address" placeholder="Please Enter Your Complete Address" >
+                                                    <label class="@error('complete_address') text-danger @enderror">COMPLETE ADDRESS</label>
+                                                    <input type="text" class="form-control @error('complete_address') border-danger @enderror" name="complete_address" value="{{old('complete_address')}}" placeholder="Please Enter Your Complete Address" >
+                                                    @error('complete_address')
+                                                    <div class="alert alert-danger mt-2">{{ $message }}</div>
+                                                    @enderror
                                                     <span class="form-text text-muted">Please enter your Address.</span>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-xl-6">
                                                         <div class="form-group">
-                                                            <label>ZIP/POSTAL CODE:</label>
-                                                            <input type="text" class="form-control" name="zip_code" placeholder="Please Enter Your Zip Code">
+                                                            <label class="@error('zip_code') text-danger @enderror">ZIP/POSTAL CODE:</label>
+                                                            <input type="text" class="form-control @error('zip_code') border-danger @enderror" name="zip_code" value="{{old('zip_code')}}" placeholder="Please Enter Your Zip Code">
+                                                            @error('zip_code')
+                                                                <div class="alert alert-danger mt-2">{{ $message }}</div>
+                                                            @enderror   
                                                             <span class="form-text text-muted">Please enter your Zip Code.</span>
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-6">
                                                         <div class="form-group">
-                                                            <label>City</label>
-                                                            <input type="text" class="form-control" name="city" placeholder="Please Enter Your City">
+                                                            <label class="@error('city') text-danger @enderror">City</label>
+                                                            <input type="text" class="form-control @error('city') border-danger @enderror" name="city" value="{{old('city')}}" placeholder="Please Enter Your City">
+                                                            @error('city')
+                                                            <div class="alert alert-danger mt-2">{{ $message }}</div>
+                                                            @enderror
                                                             <span class="form-text text-muted">Please enter your City.</span>
                                                         </div>
                                                     </div>
@@ -303,8 +373,11 @@
                                                 <div class="row">
                                                     <div class="col-xl-6">
                                                         <div class="form-group">
-                                                            <label>State</label>
-                                                            <input type="text" class="form-control" name="state" placeholder="Please Enter Your State">
+                                                            <label class="@error('state') text-danger @enderror">State</label>
+                                                            <input type="text" class="form-control @error('state') border-danger @enderror" name="state" value="{{old('state')}}" placeholder="Please Enter Your State">
+                                                            @error('state')
+                                                            <div class="alert alert-danger mt-2">{{ $message }}</div>
+                                                            @enderror
                                                             <span class="form-text text-muted">Please enter your state.</span>
                                                         </div>
                                                     </div>
@@ -312,7 +385,7 @@
                                             </div>
                                         </div>
                                     </div>
-
+ 
                                     <!--end: Form Wizard Step 3-->
 
                                     <div>
@@ -321,13 +394,13 @@
                                     </div>
                                     <!--begin: Form Actions -->
                                     <div class="kt-form__actions">
-                                        {{-- <div class="btn btn-secondary btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u" data-ktwizard-type="action-prev">
+                                        <!-- {{-- <div class="btn btn-secondary btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u" data-ktwizard-type="action-prev">
                                             Previous
                                         </div> --}}
 
                                         {{-- <div class="btn btn-brand btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u" data-ktwizard-type="action-next">
                                             Next Step
-                                        </div> --}}
+                                        </div> --}} -->
                                     </div>
                                     <!--end: Form Actions -->
                                 </form>
@@ -491,8 +564,8 @@
 
     <!--end::Global Theme Bundle -->
 
-    {{-- <!--begin::Page Scripts(used by this page) -->
-    <script src="assets/js/pages/custom/user/add-user.js" type="text/javascript"></script> --}}
+     <!--begin::Page Scripts(used by this page) -->
+    <script src="assets/js/pages/custom/user/add-user.js" type="text/javascript"></script> 
 
     <!--end::Page Scripts -->
     </body>
