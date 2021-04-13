@@ -26,25 +26,31 @@ class InstallerSeeder extends Seeder
 
         /************************ Permissions  *****************************/
         $addForm = Permission::firstOrCreate(['name' => 'add-form']);
+        $showForm = Permission::firstOrCreate(['name' => 'show-form']);
+
         $addManager = Permission::firstOrCreate(['name' => 'add-manager']);
         $addSupervisor = Permission::firstOrCreate(['name' => 'add-supervisor']);
         $addCustomer = Permission::firstOrCreate(['name' => 'add-customer']);
 
+        $viewSupervisor = Permission::firstOrCreate(['name' => 'view-supervisor']);
+        $viewSemiAdmin = Permission::firstOrCreate(['name' => 'view-semiadmin']);
+        $viewCustomer = Permission::firstOrCreate(['name' => 'view-customer']);
+
         /************************ Create Admin  *****************************/
-        $user = User::firstOrCreate(['id' => 1],[
+        $user = User::firstOrCreate(['id' => 1], [
             'f_name' => 'Admin',
             'email' => 'superadmin@crm.com',
             'password' => Hash::make('admin123.'),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
+
         $user->assignRole('admin');
         /************************ Assign Permission to Roles  *****************************/
 
-        $admin->givePermissionTo([$addForm, $addManager, $addSupervisor, $addCustomer]);
-        $manager->givePermissionTo([$addForm, $addSupervisor, $addCustomer]);
-        $supervisor->givePermissionTo([$addForm, $addCustomer]);
-        $customer->givePermissionTo([$addForm]);
-
+        $admin->givePermissionTo([$showForm->name, $addManager->name, $addSupervisor->name, $addCustomer->name, $viewCustomer->name, $viewSemiAdmin->name, $viewSupervisor->name]);
+        $manager->givePermissionTo([$addSupervisor->name, $addCustomer->name, $viewSupervisor->name]);
+        $supervisor->givePermissionTo([$showForm->name, $addCustomer->name, $viewCustomer->name]);
+        $customer->givePermissionTo([$showForm->name, $addForm->name]);
     }
 }
