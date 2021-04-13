@@ -8,7 +8,7 @@ Route::group(['prefix' => '/supervisor', 'middleware' => ['role:supervisor'], 'a
     Route::put('/profile', [App\Http\Controllers\Supervisor\PageController::class, 'update'])->name('profile.update');
 
 
-    Route::get('/form/show/{form}/{notification_id}', [FormController::class, 'show'])->name('form.show');
+    Route::get('/form/show/{form}/{notification_id}', [\App\Http\Controllers\Supervisor\FormController::class, 'show'])->name('form.show');
 
     Route::get('/employee-listing', [App\Http\Controllers\Supervisor\EmployeeController::class, 'index'])->name('employee.index');
 

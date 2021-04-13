@@ -20,15 +20,14 @@
     <div class="kt-aside-menu-wrapper kt-grid__item kt-grid__item--fluid" id="kt_aside_menu_wrapper">
         <div id="kt_aside_menu" class="kt-aside-menu " data-ktmenu-vertical="1" data-ktmenu-scroll="1" data-ktmenu-dropdown-timeout="500">
             <ul class="kt-menu__nav ">
-                <li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true"><a href="index.html" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-architecture-and-city"></i><span class="kt-menu__link-text">Dashboard</span></a></li>
+                <li class="kt-menu__item  kt-menu__item--active"><a href="#" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-architecture-and-city"></i><span class="kt-menu__link-text">Dashboard</span></a></li>
+                <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"><a href="{{ route('admin.semi-admins.index') }}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-users"></i><span class="kt-menu__link-text">Semi Admin</span></a></li>
 
-                <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"><a href="{{url('/semi-admin-listing')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-users"></i><span class="kt-menu__link-text">Semi Admin</span></a></li>
+                <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"><a href="{{ route('admin.supervisors.index') }}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-users"></i><span class="kt-menu__link-text">Supervisors</span></a></li>
 
-                <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"><a href="#" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-users"></i><span class="kt-menu__link-text">Supervisors</span></a></li>
+                <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"><a href="{{ route('admin.employees.index') }}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-users"></i><span class="kt-menu__link-text">Employees</span></a></li>
 
-                <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"><a href="#" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-users"></i><span class="kt-menu__link-text">Employees</span></a></li>
-
-                <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"><a href="#" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-users"></i><span class="kt-menu__link-text">Forms</span></a></li>
+                <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"><a href="{{ route('admin.forms.index') }}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-users"></i><span class="kt-menu__link-text">Forms</span></a></li>
 
 
             </ul>

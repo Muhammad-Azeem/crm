@@ -44,6 +44,11 @@ class User extends Authenticatable
     ];
 
 
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = bcrypt($value);
+    }
+
     public function forms()
     {
         if ($this->hasRole('customer')) {
