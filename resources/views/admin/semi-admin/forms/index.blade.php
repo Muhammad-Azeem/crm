@@ -14,7 +14,7 @@
             <div class="kt-container  kt-container--fluid ">
                 <div class="kt-subheader__main">
                     <h3 class="kt-subheader__title">
-                        Supervisors
+                        Semi-admin->Forms
                     </h3>
                     <span class="kt-subheader__separator kt-subheader__separator--v"></span>
                     <div class="kt-subheader__group kt-hidden" id="kt_subheader_group_actions">
@@ -74,15 +74,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="kt-subheader__toolbar">
-                    <a href="{{route('admin.supervisors.create')}}" class="btn btn-label-brand btn-bold">
-                        Add Supervisor </a>
-                </div>
+                {{-- <div class="kt-subheader__toolbar">
+                </div> --}}
             </div>
         </div>
 
         <!-- end:: Content Head -->
-        @include('includes.flash-message')
+
         <!-- begin:: Content -->
         <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
             <div class="row">
@@ -90,42 +88,45 @@
                     <div class="kt-portlet__head">
                         <div class="kt-portlet__head-label">
                             <h3 class="kt-portlet__head-title">
-                                Supervisors
+                                Forms
                             </h3>
                         </div>
                     </div>
                     <div class="kt-portlet__body">
                         <div class="kt-section">
-                            @if($users->isNOtEmpty())
+                            @if($forms->isNOtEmpty())
                             <div class="kt-section__content">
                                 <table class="table">
                                     <thead class="thead-light">
                                         <tr>
                                             <th>#</th>
-                                            <th>Image</th>
-                                            <th>Name</th>
-                                            <th>email</th>
-                                            <th>Phone Number</th>
-                                            <th>Date Of Birth</th>
+                                            <th>Agent Name</th>
+                                            <th>Customer Name</th>
+                                            <th>Company Name</th>
+                                            <th>Sevice Type</th>
+                                            <th>Billing Number</th>
+                                            <th>Status</th>
+                                            <th>Receivable</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                      @foreach($users as $key => $user)
+                                      @foreach($forms as $key => $form)
                                         <tr>
                                             <th scope="row">{{ $key + 1 }}</th>
-                                            <th>
-                                                <img alt="Pic" style="width:2.4rem;boder-radius:4px" src="{{asset($user->profile_picture ? '/storage/'.$user->profile_picture : 'assets/download.jpeg')}}" />
-                                            </th>
-                                            <td>{{ $user->full_name  ?? ''}}</td>
-                                            <td>{{ $user->email ?? ''}}</td>
-                                            <td>{{ $user->phone_number ?? ''}}</td>
-                                            <td>{{ $user->dob ?? ''}}</td>
+                                            <td>{{ $form->agent_name  ?? ''}}</td>
+                                            <td>{{ $form->customer_name  ?? ''}}</td>
+                                            <td>{{ $form->company_name  ?? ''}}</td>
+                                            <td>{{ $form->sevice_type ?? ''}}</td>
+                                            <td>{{ $form->billing_ac_number ?? ''}}</td>
+                                            <td>
+                                                <span class="kt-badge  kt-badge--{{ $form->statusColor() }} kt-badge--inline kt-badge--pill">{{ $form->status }}</span>
+                                            </td>
+                                            <td>{{ $form->receivable ?? ''}}</td>
                                             <td>
                                                 <div class="kt-widget__action">
-                                                    <a type="button" href="{{ route('admin.supervisors.edit',[$user->id]) }}" class="btn btn-brand btn-sm btn-upper">Edit</a>
-                                                    <a type="button" href="{{ route('admin.supervisors.employees',[$user->id]) }}" class="btn btn-brand btn-sm btn-upper">Employees</a>
-                                                    <a type="button" href="{{ route('admin.supervisors.forms',[$user->id]) }}" class="btn btn-brand btn-sm btn-upper">Forms</a>
+                                                    {{-- <a type="button" href="{{ route('employee.form.comments.show',['form' => $form->id]) }}" class="btn btn-brand btn-sm btn-upper">Comments</a> --}}
+
                                                 </div>
                                             </td>
                                         </tr>
@@ -135,7 +136,7 @@
                             </div>
                             @else
                             <div class="alert alert-info" role="alert">
-                                <div class="alert-text"> Sorry you did not add any Employees yet.</div>
+                                <div class="alert-text"> Sorry Employee did not add any form yet.</div>
                             </div>
                             @endif
                         </div>
@@ -143,6 +144,8 @@
                 </div>
             </div>
     </div>
+
+
 @endsection
 @section('javascript')
 @endsection

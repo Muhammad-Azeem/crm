@@ -14,7 +14,7 @@
             <div class="kt-container  kt-container--fluid ">
                 <div class="kt-subheader__main">
                     <h3 class="kt-subheader__title">
-                        Supervisors
+                        Supervisors->Employees
                     </h3>
                     <span class="kt-subheader__separator kt-subheader__separator--v"></span>
                     <div class="kt-subheader__group kt-hidden" id="kt_subheader_group_actions">
@@ -75,14 +75,12 @@
                     </div>
                 </div>
                 <div class="kt-subheader__toolbar">
-                    <a href="{{route('admin.supervisors.create')}}" class="btn btn-label-brand btn-bold">
-                        Add Supervisor </a>
                 </div>
             </div>
         </div>
 
         <!-- end:: Content Head -->
-        @include('includes.flash-message')
+
         <!-- begin:: Content -->
         <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
             <div class="row">
@@ -90,8 +88,9 @@
                     <div class="kt-portlet__head">
                         <div class="kt-portlet__head-label">
                             <h3 class="kt-portlet__head-title">
-                                Supervisors
+                                Employees List
                             </h3>
+
                         </div>
                     </div>
                     <div class="kt-portlet__body">
@@ -123,9 +122,7 @@
                                             <td>{{ $user->dob ?? ''}}</td>
                                             <td>
                                                 <div class="kt-widget__action">
-                                                    <a type="button" href="{{ route('admin.supervisors.edit',[$user->id]) }}" class="btn btn-brand btn-sm btn-upper">Edit</a>
-                                                    <a type="button" href="{{ route('admin.supervisors.employees',[$user->id]) }}" class="btn btn-brand btn-sm btn-upper">Employees</a>
-                                                    <a type="button" href="{{ route('admin.supervisors.forms',[$user->id]) }}" class="btn btn-brand btn-sm btn-upper">Forms</a>
+                                                    <a type="button" href="{{ route('admin.employees.forms',[$user->id]) }}" class="btn btn-brand btn-sm btn-upper"> Forms</a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -135,7 +132,7 @@
                             </div>
                             @else
                             <div class="alert alert-info" role="alert">
-                                <div class="alert-text"> Sorry you did not add any Employees yet.</div>
+                                <div class="alert-text"> Sorry you did not have any Employees yet.</div>
                             </div>
                             @endif
                         </div>

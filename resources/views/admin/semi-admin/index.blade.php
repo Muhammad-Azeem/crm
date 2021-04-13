@@ -83,7 +83,7 @@
         </div>
 
         <!-- end:: Content Head -->
-
+        @include('includes.flash-message')
         <!-- begin:: Content -->
         <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
             <div class="row">
@@ -104,6 +104,7 @@
                                     <thead class="thead-light">
                                         <tr>
                                             <th>#</th>
+                                            <th>Image</th>
                                             <th>Name</th>
                                             <th>email</th>
                                             <th>Phone Number</th>
@@ -115,6 +116,9 @@
                                       @foreach($users as $key => $user)
                                         <tr>
                                             <th scope="row">{{ $key + 1 }}</th>
+                                            <th>
+                                                <img alt="Pic" style="width:2.4rem;boder-radius:4px" src="{{asset($user->profile_picture ? '/storage/'.$user->profile_picture : 'assets/download.jpeg')}}" />
+                                            </th>
                                             <td>{{ $user->full_name  ?? ''}}</td>
                                             <td>{{ $user->email ?? ''}}</td>
                                             <td>{{ $user->phone_number ?? ''}}</td>
@@ -122,6 +126,8 @@
                                             <td>
                                                 <div class="kt-widget__action">
                                                     <a type="button" href="{{ route('admin.semi-admins.edit',[$user->id]) }}" class="btn btn-brand btn-sm btn-upper">Edit</a>
+                                                    <a type="button" href="{{ route('admin.semi-admins.supervisors',[$user->id]) }}" class="btn btn-brand btn-sm btn-upper">Supervisors</a>
+                                                    <a type="button" href="{{ route('admin.semi-admins.forms',[$user->id]) }}" class="btn btn-brand btn-sm btn-upper">Forms</a>
                                                 </div>
                                             </td>
                                         </tr>

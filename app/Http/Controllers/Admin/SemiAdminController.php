@@ -37,6 +37,10 @@ class SemiAdminController extends Controller
 
         $user->assignRole('manager');
 
+
+        $request->session()->flash('class', 'success');
+        $request->session()->flash('message', 'Supervisor created Successfully.');
+
         return redirect()->route('admin.semi-admins.index');
     }
 
@@ -59,7 +63,8 @@ class SemiAdminController extends Controller
     {
         $data = $request->validated();
 
-        if ($request->hasFile('profile_pic')) {
+        if ($request->hasFile('profile_picture')) {
+
             if ($semi_admin->profile_picture) {
                 Storage::delete($semi_admin->profile_picture);
             }
@@ -69,6 +74,26 @@ class SemiAdminController extends Controller
 
         $semi_admin->update($data);
 
+
+        $request->session()->flash('class', 'success');
+        $request->session()->flash('message', 'Supervisor updated Successfully.');
+
         return redirect()->route('admin.semi-admins.index');
+    }
+
+
+    public function supervisors(User $semi_admin)
+    {
+        $users = $semi_admin->supervisors()->get();
+
+        return view('admin.semi-admin.supervisors.index', compact('users'));
+    }
+
+
+    public function forms(User $semi_admin)
+    {
+        $forms = $semi_admin->forms;
+
+        return view('admin.semi-admin.forms.index', compact('forms'));
     }
 }

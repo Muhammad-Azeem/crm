@@ -16,12 +16,14 @@ class SupervisorController extends Controller
         return view('admin.supervisors.index', compact('users'));
     }
 
+
     public function create()
     {
         $users = User::role('manager')->get();
 
         return view('admin.supervisors.create', compact('users'));
     }
+
 
     public function store(SupervisorRequest $request)
     {
@@ -41,8 +43,12 @@ class SupervisorController extends Controller
 
         $user->assignRole('supervisor');
 
+        $request->session()->flash('class', 'success');
+        $request->session()->flash('message', 'Supervisor created Successfully.');
+
         return redirect()->route('admin.supervisors.index');
     }
+
 
     public function edit(User $supervisor)
     {
@@ -52,6 +58,7 @@ class SupervisorController extends Controller
 
         return view('admin.supervisors.edit', compact('user', 'users'));
     }
+
 
     public function update(SupervisorRequest $request, User $supervisor)
     {
@@ -68,6 +75,25 @@ class SupervisorController extends Controller
 
         $supervisor->update($data);
 
+        $request->session()->flash('class', 'success');
+        $request->session()->flash('message', 'Supervisor updated Successfully.');
+
         return redirect()->route('admin.supervisors.index');
+    }
+
+
+    public function employees(User $supervisor)
+    {
+        $users = $supervisor->employees()->get();
+
+        return view('admin.supervisors.employees.index', compact('users'));
+    }
+
+
+    public function forms(User $supervisor)
+    {
+        $forms = $supervisor->forms()->get();
+
+        return view('admin.supervisors.forms.index', compact('forms'));
     }
 }

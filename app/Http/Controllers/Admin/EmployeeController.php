@@ -13,6 +13,7 @@ class EmployeeController extends Controller
     public function index()
     {
         $users = User::role('customer')->get();
+
         return view('admin.employees.index', compact('users'));
     }
 
@@ -44,6 +45,10 @@ class EmployeeController extends Controller
 
         $user->assignRole('customer');
 
+
+        $request->session()->flash('class', 'success');
+        $request->session()->flash('message', 'Employee created Successfully.');
+
         return redirect()->route('admin.employees.index');
     }
 
@@ -74,6 +79,19 @@ class EmployeeController extends Controller
 
         $employee->update($data);
 
+
+        $request->session()->flash('class', 'success');
+        $request->session()->flash('message', 'Employee updated Successfully.');
+
         return redirect()->route('admin.employees.index');
+    }
+
+
+    public function forms(User $employee)
+    {
+
+        $forms = $employee->forms()->get();
+
+        return view('admin.employees.forms.index', compact('forms'));
     }
 }
