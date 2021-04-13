@@ -2,7 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 
+Route::get('/show', [\App\Http\Controllers\Supervisor\FormController::class, 'view'])->name('forms.show');
+
 Route::group(['prefix' => '/supervisor', 'middleware' => ['role:supervisor'], 'as' => 'supervisor.'], function () {
+
+    Route::get('/dashboard', [\App\Http\Controllers\Supervisor\FormController::class, 'dashboard'])->name('dashboard');
+
 
     Route::get('/profile', [App\Http\Controllers\Supervisor\PageController::class, 'profile'])->name('profile');
     Route::put('/profile', [App\Http\Controllers\Supervisor\PageController::class, 'update'])->name('profile.update');

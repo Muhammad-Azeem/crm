@@ -13,6 +13,11 @@ use Illuminate\Validation\Rule;
 
 class FormController extends Controller
 {
+    public function dashboard()
+    {
+        return view('supervisors.dashboard');
+    }
+
     //route model binding Form $form attribute use this when make functional.
     public function show($form, $notification_id)
     {
@@ -71,5 +76,11 @@ class FormController extends Controller
         $forms = $employee->forms()->get();
 
         return view('supervisors.forms.index', compact('forms'));
+    }
+
+    public function view(Form $form)
+    {
+        $forms = Form::all();
+        return view('supervisors.forms.show', compact('forms'));
     }
 }

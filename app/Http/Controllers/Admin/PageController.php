@@ -10,7 +10,8 @@ class PageController extends Controller
 {
     public function dashboard()
     {
-        return view('admin');
+//        dd('dd');
+        return view('admin.dashboard');
     }
 
     public function profile()
