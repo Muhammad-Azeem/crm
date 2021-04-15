@@ -86,7 +86,7 @@
         </div>
 
         <!-- end:: Content Head -->
-
+         @include('includes.flash-message')
         <!-- begin:: Content -->
         <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
             <div class="row">

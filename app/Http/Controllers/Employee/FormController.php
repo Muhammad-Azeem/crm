@@ -29,7 +29,6 @@ class FormController extends Controller
 
     public function store(Request $request)
     {
-        //        dd($request->all());
 
         $request->validate([
             'user_id' => ['nullable'],
@@ -55,6 +54,8 @@ class FormController extends Controller
 
         $user = auth()->user();
         $supervisor = User::findOrFail($user->parent_id);
+
+        $data['parent_id'] = $supervisor->id;
 
         $data['comment_disable_time'] = now()->addDays(2)->toDateTimeString();
 

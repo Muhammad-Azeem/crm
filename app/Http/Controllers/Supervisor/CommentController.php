@@ -19,6 +19,7 @@ class CommentController extends Controller
             'form'  => ['required', 'numeric', 'exists:forms,id'],
             'file' => ['nullable', 'file', 'max:2048'],
         ]);
+
         if ($supervisor->hasRole('supervisor')) {
 
             if ($request->hasFile('file')) {
@@ -36,6 +37,9 @@ class CommentController extends Controller
                     'file_name' => $data['file_name'] ?? null,
                 ]);
         }
+
+        $request->session()->flash('class', 'success');
+        $request->session()->flash('message', 'Comment send and save successfully.');
 
         return redirect()->route('supervisor.forms.index');
     }
