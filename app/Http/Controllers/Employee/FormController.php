@@ -48,13 +48,9 @@ class FormController extends Controller
         ]);
 
         $data = $request->all();
-        if ($request->file('profile_pic')) {
 
-            $filename = time() . '.' . $request->profile_pic->extension();
-            $request->profile_pic->move(public_path('uploads'), $filename);
-            $data['profile_pic'] = $filename;
-        } else {
-            $filename = NULL;
+        if ($request->file('profile_pic')) {
+            $data['profile_pic'] = $request->file('profile_pic')->store('profiles');
         }
 
         $user = auth()->user();
