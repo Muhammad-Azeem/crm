@@ -33,14 +33,20 @@ class AuthController extends Controller
         if ($email) {
             if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
 
-                if(Auth::user()->hasrole('admin')){
-                    return redirect()->route('admin.dashboard') ;
+                if (Auth::user()->hasRole('admin')) {
+                    return redirect()->route('admin.dashboard')->with('message', 'Welcome to Admin Dashboard.');
                 }
-                if(Auth::user()->hasrole('manager')){
-                    return redirect()->route('manager.dashboard') ;
+
+                if (Auth::user()->hasRole('manager')) {
+                    return redirect()->route('manager.dashboard')->with('message', 'Welcome to Semi Admin Dashboard.');
                 }
-                if(Auth::user()->hasrole('supervisor')){
-                    return redirect()->route('supervisor.dashboard') ;
+
+                if (Auth::user()->hasRole('supervisor')) {
+                    return redirect()->route('supervisor.dashboard')->with('message', 'welcome to Supervisor Dashboard.');
+                }
+
+                if (Auth::user()->hasRole('customer')) {
+                    return redirect()->route('employee.forms.index')->with('message', 'Welcome to Employee Dashboard.');
                 }
 
 
@@ -51,9 +57,9 @@ class AuthController extends Controller
         } else {
             return \redirect()->back()->with('error', 'Email Not Found');
         }
-
     }
-    public function logout(){
+    public function logout()
+    {
         Auth::logout();
         return redirect(url('login'));
     }

@@ -105,12 +105,6 @@
                     </div>
                 </div>
                 <div class="kt-subheader__toolbar">
-                    <a href="#" class="">
-                    </a>
-                    @can('add-'.$curr_user_permission)
-                    <a href="{{url('user/add/'.$curr_user_permission.'/'.$canSelect.'/'.$filterRole)}}" class="btn btn-label-brand btn-bold">
-                        Add {{$curr_user}} </a>
-                        @endcan
                 </div>
             </div>
         </div>
@@ -141,12 +135,6 @@
                                             <a href="{{ route('supervisor.employee.forms',$values->id) }}" class="kt-nav__link">
                                                 <i class="kt-nav__link-icon flaticon2-line-chart"></i>
                                                 <span class="kt-nav__link-text">Forms</span>
-                                            </a>
-                                        </li>
-                                        <li class="kt-nav__item">
-                                            <a href="#" class="kt-nav__link">
-                                                <i class="kt-nav__link-icon flaticon2-send"></i>
-                                                <span class="kt-nav__link-text">Messages</span>
                                             </a>
                                         </li>
                                     </ul>

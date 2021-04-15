@@ -13,16 +13,13 @@ use Illuminate\Validation\Rule;
 
 class FormController extends Controller
 {
-    public function dashboard()
-    {
-        return view('supervisors.dashboard');
-    }
 
     //route model binding Form $form attribute use this when make functional.
     public function show($form, $notification_id)
     {
         $supervisor = Auth::user();
-
+        $supervisor->notifications()->findOrFail($notification_id)
+            ->markAsRead();
 
         return view('supervisors.forms.show', compact('form'));
     }

@@ -135,7 +135,9 @@
                                                     @endif
                                                     <a type="button" href="{{ route('supervisor.form.comments.index',['form' => $form->id]) }}" class="btn btn-brand btn-sm btn-upper">Comments</a>
 
+                                                    @if($form->isPending())
                                                     <button type="button" onclick="event.preventDefault();updateStatus(this);"class="btn btn-bold btn-label-brand btn-sm" data-route="{{route('supervisor.employee.form.update.status',$form->id)}}">Update Status</button>
+                                                    @endif
 
 
                                                 </div>

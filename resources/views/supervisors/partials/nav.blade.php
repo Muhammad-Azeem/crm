@@ -44,7 +44,7 @@
         <!--end: Search -->
 
         <!--begin: Notifications -->
-        {{-- <div class="kt-header__topbar-item dropdown">
+        <div class="kt-header__topbar-item dropdown">
             <div class="kt-header__topbar-wrapper" data-toggle="dropdown" data-offset="30px,0px" aria-expanded="true">
 									<span class="kt-header__topbar-icon kt-pulse kt-pulse--brand">
 										<i class="flaticon2-bell-alarm-symbol"></i>
@@ -73,16 +73,8 @@ Use dot badge instead of animated pulse effect:
                         </ul>
                     </div>
                     @php
-                    $user = Auth::user();
-                    $route = null;
-                    if($user->hasRole('customer')){
-                        $route = 'employee.form.show';
-                    }else if($user->hasRole('supervisor')){
-                        $route = 'supervisor.form.show';
-                    }else if($user->hasRole('manager')){
-                        $route = 'manager.form.show';
-                    }
-                   @endphp
+                        $user = Auth::user();
+                    @endphp
 
                     <!--end: Head -->
                     <div class="tab-content">
@@ -90,7 +82,7 @@ Use dot badge instead of animated pulse effect:
                             <div class="kt-notification kt-margin-t-10 kt-margin-b-10 kt-scroll" data-scroll="true" data-height="300" data-mobile-height="200">
                                 @if($user->notifications->isNOtEmpty())
                                  @foreach($user->notifications as $notification)
-                                 <a href="{{ (!is_null($route)) ? route($route,['form' => $notification->data['form_id'] ?? 0,$notification->id]) : '#' }}" class="kt-notification__item">
+                                 <a href="{{ route('supervisor.form.show',['form' => $notification->data['form_id'] ?? 0,$notification->id]) }}" class="kt-notification__item">
                                     <div class="kt-notification__item-icon">
                                         <i class="{{ $notification->read_at ? 'flaticon2-line-chart kt-font-success' : 'flaticon2-chart2 kt-font-danger' }}"></i>
                                     </div>
@@ -124,7 +116,7 @@ Use dot badge instead of animated pulse effect:
                     </div>
                 </form>
             </div>
-        </div> --}}
+        </div>
 
         <!--end: Notifications -->
 
@@ -144,7 +136,7 @@ Use dot badge instead of animated pulse effect:
                 <div class="kt-header__topbar-user">
                     <span class="kt-header__topbar-welcome kt-hidden-mobile">Hi,</span>
                     <span class="kt-header__topbar-username kt-hidden-mobile">{{Auth::user()->f_name}}</span>
-                    <img alt="Pic" class="kt-radius-100" src="{{asset(Auth::user()->profile_picture ? '/uploads/'.Auth::user()->profile_picture : 'assets/download.jpeg')}}" />
+                    <img alt="Pic" class="kt-radius-100" src="{{asset(Auth::user()->profile_picture ? 'storage/'.Auth::user()->profile_picture : 'assets/download.jpeg')}}" />
 
                     <!--use below badge element instead the user avatar to display username's first letter(remove kt-hidden class to display it) -->
 
@@ -173,7 +165,7 @@ Use dot badge instead of animated pulse effect:
 
                 <!--begin: Navigation -->
                 <div class="kt-notification">
-                    <a href="{{ route('admin.profile') }}" class="kt-notification__item">
+                    <a href="{{route('supervisor.profile')}}" class="kt-notification__item">
                         <div class="kt-notification__item-icon">
                             <i class="flaticon2-calendar-3 kt-font-success"></i>
                         </div>

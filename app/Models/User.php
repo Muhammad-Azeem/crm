@@ -52,12 +52,20 @@ class User extends Authenticatable
     public function forms()
     {
         if ($this->hasRole('customer')) {
-            return $this->hasMany(Form::class, 'user_id', 'id');
+            return $this->employeeForms();
+        } else {
+            return $this->supervisorForms();
         }
+    }
 
-        if ($this->hasRole('supervisor')) {
-            return $this->hasMany(Form::class, 'parent_id', 'id');
-        }
+    public function employeeForms()
+    {
+        return $this->hasMany(Form::class, 'user_id', 'id');
+    }
+
+    public function supervisorForms()
+    {
+        return $this->hasMany(Form::class, 'parent_id', 'id');
     }
 
     public function employees()
@@ -94,5 +102,65 @@ class User extends Authenticatable
         $forms = Form::where('status', 'approved')->whereIn('user_id', $employees)->get();
 
         return $forms;
+    }
+
+    //only for semi-admin
+    public function getEmployeesCountAttribute()
+    {
+        $count = 0;
+
+        if ($this->hasRole('manager')) {
+            $supervisors = $this->supervisors->pluck('id');
+            $count = User::select('id')->whereIn('parent_id', $supervisors)->count();
+        }
+
+        return $count;
+    }
+
+    //only for semi-admin
+    public function getEmployeesFormsCountAttribute()
+    {
+
+        $count = 0;
+
+        if ($this->hasRole('manager')) {
+            $supervisors = $this->supervisors->pluck('id');
+            $employees = User::select('id')->whereIn('parent_id', $supervisors)->get()->pluck('id');
+            $count = Form::where('status', 'approved')->whereIn('user_id', $employees)->count();
+        }
+
+        if ($this->hasRole('supervisor')) {
+            $employees = $this->employees->pluck('id');
+            $count = Form::whereIn('user_id', $employees)->count();
+        }
+
+        return $count;
+    }
+
+    //only for semi-admin
+    public function approvedForms($limit = 5)
+    {
+        $forms = collect([]);
+
+        if ($this->hasRole('manager')) {
+            $supervisors = $this->supervisors->pluck('id');
+            $employees = User::select('id')->whereIn('parent_id', $supervisors)->get()->pluck('id');
+            $forms = Form::where('status', 'approved')->whereIn('user_id', $employees)->latest()->limit($limit)->get();
+        }
+
+        return $forms;
+    }
+
+    public function getSemiAdminEmployeesAttribute()
+    {
+        $employees = collect([]);
+
+        if ($this->hasRole('manager')) {
+            $supervisors = $this->supervisors->pluck('id');
+            $employees = User::withCount('employeeForms')->whereIn('parent_id', $supervisors)
+                ->orderBy('employee_forms_count', 'desc')->limit(5)->get();
+        }
+
+        return $employees;
     }
 }

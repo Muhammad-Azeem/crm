@@ -120,150 +120,164 @@
                                                             <div class="form-group row">
                                                                 <label class="col-xl-3 col-lg-3 col-form-label">DATE:</label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="date" name="date" id="" >
+                                                                    <input class="form-control" type="date" name="date" value="{{ old('date') }}" id="" >
                                                                 </div>
+                                                                @error('date')
+                                                                <span class="kt-font-danger">{{ $message }}</span>
+                                                                @enderror
                                                             </div>
                                                             <div class="form-group row">
                                                                 <label class="col-xl-3 col-lg-3 col-form-label">T.L. NAME:</label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="text" name="tl_name" id="" placeholder="Please Enter T.L Name">
+                                                                    <input class="form-control" type="text" value="{{ old('tl_name') }}" name="tl_name" id="" placeholder="Please Enter T.L Name">
                                                                 </div>
+                                                                @error('tl_name')
+                                                                <span class="kt-font-danger">{{ $message }}</span>
+                                                                @enderror
                                                             </div>
                                                             <div class="form-group row">
                                                                 <label class="col-xl-3 col-lg-3 col-form-label">AGENT NAME:</label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="text" name="agent_name" id="" placeholder="Please Enter Agent Name">
+                                                                    <input class="form-control" type="text" value="{{ old('agent_name') }}" name="agent_name" id="" placeholder="Please Enter Agent Name">
                                                                 </div>
+                                                                @error('agent_name')
+                                                                <span class="kt-font-danger">{{ $message }}</span>
+                                                                @enderror
                                                             </div>
                                                             <div class="form-group row">
                                                                 <label class="col-xl-3 col-lg-3 col-form-label">CUSTOMER'S NAME:</label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="text" name="customer_name" id="" placeholder="Please Enter Customer Name">
+                                                                    <input class="form-control" value="{{ old('customer_name') }}" type="text" name="customer_name" id="" placeholder="Please Enter Customer Name">
                                                                 </div>
+                                                                @error('customer')
+                                                                <span class="kt-font-danger">{{ $message }}</span>
+                                                                @enderror
                                                             </div>
                                                             <div class="form-group row">
                                                                 <label class="col-xl-3 col-lg-3 col-form-label">COMPANY'S NAME::</label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="text" name="company_name" id="" placeholder="Please Enter Company Name">
+                                                                    <input class="form-control" type="text" name="company_name" value="{{ old('company_name') }}" id="" placeholder="Please Enter Company Name">
                                                                 </div>
+                                                                @error('company_name')
+                                                                <span class="kt-font-danger">{{ $message }}</span>
+                                                                @enderror
                                                             </div>
                                                             <div class="form-group row">
                                                                 <label class="col-xl-3 col-lg-3 col-form-label">CELL PHONE:</label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="text" name="cell_phone" id="" placeholder="+923054812545">
+                                                                    <input class="form-control" type="text" value="{{ old('cell_phone') }}" name="cell_phone" id="" placeholder="+923054812545">
                                                                 </div>
+                                                                @error('cell_phone')
+                                                                <span class="kt-font-danger">{{ $message }}</span>
+                                                                @enderror
                                                             </div>
                                                             <div class="form-group row">
                                                                 <label class="col-xl-3 col-lg-3 col-form-label">HOME PHONE:</label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="text" name="home_phone" id="" placeholder="0424007460">
+                                                                    <input value="{{ old('home_phone') }}" class="form-control" type="text" name="home_phone" id="" placeholder="0424007460">
                                                                 </div>
+                                                                @error('home_phone')
+                                                                <span class="kt-font-danger">{{ $message }}</span>
+                                                                @enderror
                                                             </div>
                                                             <div class="form-group row">
                                                                 <label class="col-xl-3 col-lg-3 col-form-label">CUSTOMER'S EMAIL :</label>
                                                                 <div class="col-lg-9 col-xl-9">
                                                                     <div class="input-group">
                                                                         <div class="input-group-prepend"><span class="input-group-text"><i class="la la-at"></i></span></div>
-                                                                        <input type="text" class="form-control" name="customer_email"  placeholder="customeremail@gmail.com" aria-describedby="basic-addon1">
+                                                                        <input type="text" class="form-control" name="customer_email"  placeholder="customeremail@gmail.com" value="{{ old('customer_email') }}" aria-describedby="basic-addon1">
                                                                     </div>
                                                                     <span class="form-text text-muted">Email will not be publicly displayed. <a href="#" class="kt-link">Learn more</a>.</span>
+                                                                    @error('customer_email')
+                                                                    <span class="kt-font-danger">{{ $message }}</span>
+                                                                    @enderror
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row">
                                                                 <label class="col-xl-3 col-lg-3 col-form-label">SERVICE TYPE:</label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="text" name="service_type" id="" value="Please Enter Your Service Type" >
+                                                                    <input class="form-control" type="text" value="{{ old('service_type') }}" name="service_type" id="" value="Please Enter Your Service Type" >
                                                                 </div>
+                                                                @error('service_type')
+                                                                <span class="kt-font-danger">{{ $message }}</span>
+                                                                @enderror
                                                             </div>
                                                             <div class="form-group row">
                                                                 <label class="col-xl-3 col-lg-3 col-form-label">BILLING AC:</label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="text" name="billing_ac_number" id="" value="Please Enter Your Billing AC" >
+                                                                    <input class="form-control" value="{{ old('billing_ac_number') }}" type="text" name="billing_ac_number" id="" value="{{ old('billing_ac_number') }}" placeholder = "Please Enter Your Billing AC" >
                                                                 </div>
+                                                                @error('billing_ac_number')
+                                                                <span class="kt-font-danger">{{ $message }}</span>
+                                                                @enderror
                                                             </div>
                                                             <div class="form-group row">
                                                                 <label class="col-xl-3 col-lg-3 col-form-label">REFERENCE :</label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="text" name="reference" id="" value="Please Enter Your Reference" >
+                                                                    <input class="form-control" type="text" name="reference" id="" value="{{ old('reference') }}" placeholder = "Please Enter you reference." >
                                                                 </div>
+                                                                @error('reference')
+                                                                <span class="kt-font-danger">{{ $message }}</span>
+                                                                @enderror
                                                             </div>
                                                             <div class="form-group row">
                                                                 <label class="col-xl-3 col-lg-3 col-form-label">SSN :</label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="text" name="ssn" id="" value="Please Enter Your SSN" >
+                                                                    <input value="{{ old('ssn') }}" class="form-control" type="text" name="ssn" id="" value="Please Enter Your SSN" >
                                                                 </div>
+                                                                @error('ssn')
+                                                                <span class="kt-font-danger">{{ $message }}</span>
+                                                                @enderror
                                                             </div>
 
                                                             <div class="form-group row">
                                                                 <label class="col-xl-3 col-lg-3 col-form-label">DOB :</label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="date" name="dob" id="" value="Please Enter Your Date of Birth" >
+                                                                    <input class="form-control" type="date" name="dob" id="" value="{{ old('dob') }}" placeholder="Please Enter Your Date of Birth" >
                                                                 </div>
+                                                                @error('dob')
+                                                                <span class="kt-font-danger">{{ $message }}</span>
+                                                                @enderror
                                                             </div>
 
                                                             <div class="form-group row">
                                                                 <label class="col-xl-3 col-lg-3 col-form-label">PER MONTH :</label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="text" name="per_month" id="" value="Please Enter Your Per Month" >
+                                                                    <input class="form-control" type="text" value="{{ old('per_month') }}" name="per_month" id="" value="Please Enter Your Per Month" >
                                                                 </div>
+                                                                @error('per_month')
+                                                                <span class="kt-font-danger">{{ $message }}</span>
+                                                                @enderror
                                                             </div>
 
                                                             <div class="form-group row">
                                                                 <label class="col-xl-3 col-lg-3 col-form-label">TOTAL TO PAY :</label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="text" name="total_to_pay" id="" value="Please Enter Your Total to Pay" >
+                                                                    <input class="form-control" value="{{ old('total_to_pay') }}" type="text" name="total_to_pay" id=""  placeholder="Please Enter Your Total to Pay" >
                                                                 </div>
+                                                                @error('total_to_pay')
+                                                                <span class="kt-font-danger">{{ $message }}</span>
+                                                                @enderror
                                                             </div>
 
                                                             <div class="form-group row">
                                                                 <label class="col-xl-3 col-lg-3 col-form-label">RECEIVABLE :</label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="text" name="receivable" id="" value="Please Enter Your Receivable" >
+                                                                    <input class="form-control"  type="text" name="receivable" id="" value="{{ old('receivable') }}" >
                                                                 </div>
+                                                                @error('receivable')
+                                                                <span class="kt-font-danger">{{ $message }}</span>
+                                                                @enderror
                                                             </div>
 
                                                             <div class="form-group row">
                                                                 <label class="col-xl-3 col-lg-3 col-form-label">REMARKS & COMMENTS :</label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <input class="form-control" type="text" name="comment" id="" value="Please Enter Your Remarks & Comments" >
+                                                                    <input class="form-control" type="text" name="comment" id="" value="{{ old('comment') }}" >
                                                                 </div>
-                                                            </div>
-                                                            <div class="kt-separator kt-separator--border-dashed kt-separator--portlet-fit kt-separator--space-lg"></div>
-                                                            <div class="form-group row">
-                                                                <div class="col-lg-9 col-xl-6">
-                                                                    <h3 class="kt-section__title kt-section__title-md">User's Account Settings</h3>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group row">
-                                                                <label class="col-xl-3 col-lg-3 col-form-label">Login verification</label>
-                                                                <div class="col-lg-9 col-xl-6">
-                                                                    <button type="button" class="btn btn-label-brand btn-bold btn-sm kt-margin-t-5 kt-margin-b-5">Setup login verification</button>
-                                                                    <span class="form-text text-muted">
-																						After you log in, you will be asked for additional information to confirm your identity and protect your account from being compromised.
-																						<a href="#" class="kt-link">Learn more</a>.
-																					</span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group row">
-                                                                <label class="col-xl-3 col-lg-3 col-form-label">Password reset verification</label>
-                                                                <div class="col-lg-9 col-xl-6">
-                                                                    <div class="kt-checkbox-single">
-                                                                        <label class="kt-checkbox">
-                                                                            <input type="checkbox"> Require personal information to reset your password.
-                                                                            <span></span>
-                                                                        </label>
-                                                                    </div>
-                                                                    <span class="form-text text-muted">
-																						For extra security, this requires you to confirm your email or phone number when you reset your password.
-																						<a href="#" class="kt-link">Learn more</a>.
-																					</span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group row kt-margin-t-10 kt-margin-b-10">
-                                                                <label class="col-xl-3 col-lg-3 col-form-label"></label>
-                                                                <div class="col-lg-9 col-xl-6">
-                                                                    <button type="button" class="btn btn-label-danger btn-bold btn-sm kt-margin-t-5 kt-margin-b-5">Deactivate your account ?</button>
-                                                                </div>
+                                                                @error('commment')
+                                                                <span class="kt-font-danger">{{ $message }}</span>
+                                                                @enderror
                                                             </div>
                                                         </div>
                                                     </div>
@@ -281,32 +295,45 @@
                                             <div class="kt-wizard-v4__form">
                                                 <div class="form-group">
                                                     <label>COMPLETE ADDRESS</label>
-                                                    <input type="text" class="form-control" name="complete_address" placeholder="Please Enter Your Complete Address" >
+                                                    <input type="text" class="form-control" name="complete_address" value="{{ old('complete_address') }}" placeholder="Please Enter Your Complete Address" >
                                                     <span class="form-text text-muted">Please enter your Address.</span>
+                                                    @error('complete_address')
+                                                    <span class="kt-font-danger">{{ $message }}</span>
+                                                    @enderror
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-xl-6">
                                                         <div class="form-group">
                                                             <label>ZIP/POSTAL CODE:</label>
-                                                            <input type="text" class="form-control" name="zip_code" placeholder="Please Enter Your Zip Code">
+                                                            <input type="text" class="form-control" name="zip_code" value="{{ old('zip_code') }}">
                                                             <span class="form-text text-muted">Please enter your Zip Code.</span>
                                                         </div>
+                                                        @error('zip_code')
+                                                        <span class="kt-font-danger">{{ $message }}</span>
+                                                        @enderror
                                                     </div>
                                                     <div class="col-xl-6">
                                                         <div class="form-group">
                                                             <label>City</label>
-                                                            <input type="text" class="form-control" name="city" placeholder="Please Enter Your City">
+                                                            <input type="text" class="form-control" name="city" value="{{ old('city') }}" placeholder="Please Enter Your City">
                                                             <span class="form-text text-muted">Please enter your City.</span>
                                                         </div>
+                                                        @error('city')
+                                                        <span class="kt-font-danger">{{ $message }}</span>
+                                                        @enderror
+
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-xl-6">
                                                         <div class="form-group">
                                                             <label>State</label>
-                                                            <input type="text" class="form-control" name="state" placeholder="Please Enter Your State">
+                                                            <input type="text" class="form-control" name="state" value="{{ old('state') }}" placeholder="Please Enter Your State">
                                                             <span class="form-text text-muted">Please enter your state.</span>
                                                         </div>
+                                                        @error('city')
+                                                        <span class="kt-font-danger">{{ $message }}</span>
+                                                        @enderror
                                                     </div>
                                                 </div>
                                             </div>

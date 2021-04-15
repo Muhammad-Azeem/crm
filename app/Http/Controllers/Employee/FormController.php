@@ -67,6 +67,9 @@ class FormController extends Controller
 
         $supervisor->notify(new FormSubmitNotification($user, $form->id));
 
+        $request->session()->flash('class', 'success');
+        $request->session()->flash('message', 'Form save Successfully. Thank you.');
+
         return redirect()->route('employee.forms.index');
     }
 
@@ -88,21 +91,5 @@ class FormController extends Controller
         $user = Auth::user();
 
         return view('users.show-form', compaction('user', 'form'));
-    }
-
-
-    public function updateStatus(Request $request, Form $form)
-    {
-        $user = Auth::user();
-
-        $data = $request->validate([
-            'status' => ['required', Rule::in(['approved', 'rejected', 'pending'])],
-        ]);
-
-        if ($user->hasRole('supervisor')) {
-            $user->forms()->findOrFail($form->id)->update(['status' => $data['status']]);
-        }
-
-        return redirect()->route('employee.forms.index');
     }
 }

@@ -108,7 +108,7 @@
                                                 {{ $comment->created_at->diffForHumans() }}
                                             </span><br>
                                             @if($comment->file)
-                                            <a target="_blank" href="{{ route('comment.file.download',['comment'=>$comment->id]) }}"class="kt-widget3__username">
+                                            <a target="_blank" href="{{ route('supervisor.form.comment.file.downloads',['comment'=>$comment->id]) }}"class="kt-widget3__username">
                                                 {{ $comment->file_name }}
                                             </a>
                                             @endif

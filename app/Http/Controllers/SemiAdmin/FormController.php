@@ -6,18 +6,23 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Form;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class FormController extends Controller
 {
 
-    public function show($id, $notification_id)
+    public function show(Form $form, $notification_id)
     {
-        return view('managers.forms.show');
+        $manager = Auth::user();
+
+        $manager->notifications()->findOrFail($notification_id)->markAsRead();
+
+        return view('managers.forms.show', compact('form'));
     }
 
     public function view(Form $form)
     {
-        return view('', compact('form'));
+        return view('managers.forms.show', compact('form'));
     }
 
     public function index(User $employee)

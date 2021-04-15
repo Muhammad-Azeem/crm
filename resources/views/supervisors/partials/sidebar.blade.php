@@ -20,11 +20,11 @@
     <div class="kt-aside-menu-wrapper kt-grid__item kt-grid__item--fluid" id="kt_aside_menu_wrapper">
         <div id="kt_aside_menu" class="kt-aside-menu " data-ktmenu-vertical="1" data-ktmenu-scroll="1" data-ktmenu-dropdown-timeout="500">
             <ul class="kt-menu__nav ">
-                <li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true"><a href="index.html" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-architecture-and-city"></i><span class="kt-menu__link-text">Dashboard</span></a></li>
+                <li class="kt-menu__item  {{ request()->routeIs('supervisor.dashboard') ? ' kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{ route('supervisor.dashboard') }}" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-architecture-and-city"></i><span class="kt-menu__link-text">Dashboard</span></a></li>
 
-                <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"><a href="{{route('supervisor.employee.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-users"></i><span class="kt-menu__link-text">Employees</span></a></li>
+                <li class="kt-menu__item {{ request()->routeIs('supervisor.employee.*') ? ' kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('supervisor.employee.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-users"></i><span class="kt-menu__link-text">Employees</span></a></li>
 
-                <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"><a href="{{route('supervisor.forms.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-users"></i><span class="kt-menu__link-text">Show Forms</span></a></li>
+                <li class="kt-menu__item  {{ request()->routeIs('supervisor.forms.*') || request()->routeIs('supervisor.form.*') ? ' kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('supervisor.forms.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-users"></i><span class="kt-menu__link-text">Show Forms</span></a></li>
             </ul>
         </div>
     </div>

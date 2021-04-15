@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Form;
+use Illuminate\Support\Facades\Storage;
+use App\Models\Comment;
 
 class CommentController extends Controller
 {
@@ -43,5 +45,16 @@ class CommentController extends Controller
         $comments = $form->comments()->with('user')->latest()->get();
 
         return view('supervisors.forms.comments.index', compact('comments'));
+    }
+
+    public function downloadFile(Comment $comment)
+    {
+        if (Storage::disk('local')->exists($comment->file)) {
+
+            return Storage::download($comment->file, $comment->file_name);
+        } else {
+
+            return redirect()->back();
+        }
     }
 }

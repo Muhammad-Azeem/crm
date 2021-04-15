@@ -43,4 +43,9 @@ class Form extends Model
     {
         return $this->status === 'approved';
     }
+
+    public function isPending()
+    {
+        return $this->status === 'pending';
+    }
 }

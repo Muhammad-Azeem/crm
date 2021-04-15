@@ -6,7 +6,7 @@ Route::get('/show', [\App\Http\Controllers\Supervisor\FormController::class, 'vi
 
 Route::group(['prefix' => '/supervisor', 'middleware' => ['role:supervisor'], 'as' => 'supervisor.'], function () {
 
-    Route::get('/dashboard', [\App\Http\Controllers\Supervisor\FormController::class, 'dashboard'])->name('dashboard');
+    Route::get('/dashboard', [\App\Http\Controllers\Supervisor\PageController::class, 'dashboard'])->name('dashboard');
 
 
     Route::get('/profile', [App\Http\Controllers\Supervisor\PageController::class, 'profile'])->name('profile');
@@ -26,4 +26,6 @@ Route::group(['prefix' => '/supervisor', 'middleware' => ['role:supervisor'], 'a
     Route::post('/form/comments', [\App\Http\Controllers\Supervisor\CommentController::class, 'store'])->name('form.comments.store');
 
     Route::get('/form/{form}/comments', [\App\Http\Controllers\Supervisor\CommentController::class, 'index'])->name('form.comments.index');
+
+    Route::get('form/comments/{comment}/file/downloads', [\App\Http\Controllers\Supervisor\CommentController::class, 'downloadFile'])->name('form.comment.file.downloads');
 });

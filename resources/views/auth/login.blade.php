@@ -123,7 +123,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     </div>
                     <div class="kt-login__signin">
                         <div class="kt-login__head">
-                            <h3 class="kt-login__title">Sign In To Admin</h3>
+                            <h3 class="kt-login__title">Sign In To CRM</h3>
                         </div>
                         <form class="kt-form" action="{{url('/loginPost')}}" method="post">
                             @csrf
@@ -141,7 +141,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                     </label>
                                 </div>
                                 <div class="col kt-align-right">
-                                    <a href="javascript:;" id="kt_login_forgot" class="kt-link kt-login__link">Forget Password ?</a>
+                                    {{-- <a href="javascript:;" id="kt_login_forgot" class="kt-link kt-login__link">Forget Password ?</a> --}}
                                 </div>
                             </div>
                             <div class="kt-login__actions">
@@ -150,10 +150,10 @@ License: You must have a valid license purchased only from themeforest(the above
                         </form>
                     </div>
                     <div class="kt-login__signup">
-                        <div class="kt-login__head">
+                        {{-- <div class="kt-login__head">
                             <h3 class="kt-login__title">Sign Up</h3>
                             <div class="kt-login__desc">Enter your details to create your account:</div>
-                        </div>
+                        </div> --}}
                         <form class="kt-login__form kt-form" action="">
                             <div class="input-group">
                                 <input class="form-control" type="text" placeholder="Fullname" name="fullname">
@@ -184,8 +184,8 @@ License: You must have a valid license purchased only from themeforest(the above
                     </div>
                     <div class="kt-login__forgot">
                         <div class="kt-login__head">
-                            <h3 class="kt-login__title">Forgotten Password ?</h3>
-                            <div class="kt-login__desc">Enter your email to reset your password:</div>
+                            {{-- <h3 class="kt-login__title">Forgotten Password ?</h3>
+                            <div class="kt-login__desc">Enter your email to reset your password:</div> --}}
                         </div>
                         <form class="kt-form" action="">
                             <div class="input-group">

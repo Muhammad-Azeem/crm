@@ -10,7 +10,21 @@ class PageController extends Controller
 {
     public function dashboard()
     {
-        return view('supervisors.dashboard');
+        $user = Auth::user();
+
+        $totalEmployees  = $user->employees()->count();
+
+
+        $totalForms  = $user->employees_forms_count;
+
+
+        $employees = $user->employees()->withCount('employeeForms')->orderBy('employee_forms_count')->limit(5)->get();
+
+        $forms = $user->forms()->limit(5)->get();
+
+        $notifications = $user->notifications()->limit(5)->get();
+
+        return view('supervisors.dashboard', compact(['totalEmployees', 'totalForms', 'employees', 'forms', 'notifications']));
     }
 
     public function profile()
