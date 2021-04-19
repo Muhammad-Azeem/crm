@@ -17,7 +17,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <head>
     <base href="../../../">
     <meta charset="utf-8" />
-    <title>Metronic | Login Page 2</title>
+    <title>CRM</title>
     <meta name="description" content="Login page example">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -118,7 +118,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <div class="kt-login__container">
                     <div class="kt-login__logo">
                         <a href="#">
-                            <img src="{{asset('assets/media/logos/logo-mini-2-md.png')}}">
+{{--                            <img src="{{asset('assets/media/logos/logo-mini-2-md.png')}}">--}}
                         </a>
                     </div>
                     <div class="kt-login__signin">

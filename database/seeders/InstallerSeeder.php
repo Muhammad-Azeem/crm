@@ -40,7 +40,7 @@ class InstallerSeeder extends Seeder
         $user = User::firstOrCreate(['id' => 1], [
             'f_name' => 'Admin',
             'email' => 'superadmin@crm.com',
-            'password' => Hash::make('admin123.'),
+            'password' => Hash::make('admin123'),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
