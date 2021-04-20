@@ -16,7 +16,7 @@ class Form extends Model
         'comment_disable_time',
     ];
 
-    protected $dates = ['comment_disable_time'];
+    protected $dates = ['comment_disable_time', 'dob', 'date'];
 
     public function comments()
     {

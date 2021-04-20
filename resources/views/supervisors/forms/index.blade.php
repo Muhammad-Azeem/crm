@@ -129,7 +129,7 @@
                                             <td>{{ $form->receivable ?? ''}}</td>
                                             <td>
                                                 <div class="kt-widget__action">
-                                                    {{-- <button type="button" class="btn btn-sm btn-upper" style="background: #edeff6">View</button>&nbsp; --}}
+                                                    <a type="button" href="{{ route('supervisor.form.view',['form' => $form->id]) }}" class="btn btn-brand btn-sm btn-upper">View</a>
                                                     @if(!now()->gt($form->comment_disable_time))
                                                     <button type="button" onclick="event.preventDefault();addComment(this);"class="btn btn-bold btn-label-brand btn-sm" data-form="{{ $form->id }}">Add Comment</button>
                                                     @endif

@@ -15,7 +15,11 @@ class FormController extends Controller
     {
         $manager = Auth::user();
 
-        $manager->notifications()->findOrFail($notification_id)->markAsRead();
+        $notification = $manager->notifications()->find($notification_id);
+
+        if ($notification && is_null($notification->read_at)) {
+            $notification->markAsRead();
+        }
 
         return view('managers.forms.show', compact('form'));
     }

@@ -18,7 +18,7 @@ class PageController extends Controller
         $totalForms  = $user->employees_forms_count;
 
 
-        $employees = $user->employees()->withCount('employeeForms')->orderBy('employee_forms_count')->limit(5)->get();
+        $employees = $user->employees()->withCount('employeeForms')->orderBy('employee_forms_count', 'desc')->limit(5)->get();
 
         $forms = $user->forms()->limit(5)->get();
 

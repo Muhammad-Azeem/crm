@@ -15,11 +15,17 @@ class FormController extends Controller
 {
 
     //route model binding Form $form attribute use this when make functional.
-    public function show($form, $notification_id)
+    public function show(Form $form, $notification_id)
     {
         $supervisor = Auth::user();
-        $supervisor->notifications()->findOrFail($notification_id)
-            ->markAsRead();
+
+        if ($supervisor->id !== $form->parent_id) abort(403);
+
+        $notification = $supervisor->notifications()->find($notification_id);
+
+        if ($notification && is_null($notification->read_at)) {
+            $notification->markAsRead();
+        }
 
         return view('supervisors.forms.show', compact('form'));
     }
@@ -80,7 +86,12 @@ class FormController extends Controller
 
     public function view(Form $form)
     {
-        $forms = Form::all();
-        return view('supervisors.forms.show', compact('forms'));
+        $user = Auth::user();
+
+        if ($user->id !== $form->parent_id) {
+            abort(403);
+        }
+
+        return view('supervisors.forms.show', compact('form'));
     }
 }

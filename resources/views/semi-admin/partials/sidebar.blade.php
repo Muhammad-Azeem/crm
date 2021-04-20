@@ -24,7 +24,7 @@
 
                 <li class="kt-menu__item   {{ request()->routeIs('manager.supervisors.*') ? ' kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('manager.supervisors.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-users"></i><span class="kt-menu__link-text">Supervisors</span></a></li>
 
-                <li class="kt-menu__item  {{ request()->routeIs('manager.forms') ? ' kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('manager.forms')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-users"></i><span class="kt-menu__link-text">Forms</span></a></li>
+                <li class="kt-menu__item  {{ request()->routeIs('manager.forms') || request()->routeIs('manager.forms.*') ? ' kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('manager.forms')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-users"></i><span class="kt-menu__link-text">Forms</span></a></li>
             </ul>
         </div>
     </div>

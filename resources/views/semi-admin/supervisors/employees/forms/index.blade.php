@@ -125,7 +125,7 @@
                                             <td>{{ $form->receivable ?? ''}}</td>
                                             <td>
                                                 <div class="kt-widget__action">
-                                                    <a type="button" href="#" class="btn btn-brand btn-sm btn-upper">Detial</a>
+                                                    <a type="button" href="{{ route('manager.supervisors.employees.forms.view',['form' => $form->id]) }}" class="btn btn-brand btn-sm btn-upper">Detial</a>
                                                 </div>
                                             </td>
                                         </tr>
