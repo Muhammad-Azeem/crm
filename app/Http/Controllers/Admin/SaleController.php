@@ -8,6 +8,9 @@ use App\Models\Sale;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use App\Models\User;
+use App\Notifications\FormSubmitNotification;
+use Illuminate\Support\Facades\Auth;
 
 class SaleController extends Controller
 {
@@ -16,9 +19,14 @@ class SaleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-        //
+
+
+        $forms = Auth::user()->forms;
+
+        return view('users.forms.index', compact('forms'));
     }
 
     /**
@@ -26,10 +34,10 @@ class SaleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
+    // public function create()
+    // {
+    //     //
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -39,35 +47,46 @@ class SaleController extends Controller
      */
     public function store(Request $request)
     {
+        //        dd($request->all());
+
         $request->validate([
-           'user_id' => ['nullable'],
-           'parent_id' => ['nullable'],
-           'date' => ['required'],
-           'tl_name' => ['required'],
-           'agent_name' => ['required'],
-           'customer_name' => ['required'],
-           'cell_phone' => ['required'],
-           'service_type' => ['required'],
-           'billing_ac_number' => ['required'],
-           'total_to_pay' => ['required'],
-           'receivable' => ['required'],
-           'profile_pic' => ['nullable'],
+            'user_id' => ['nullable'],
+            'parent_id' => ['nullable'],
+            'date' => ['required'],
+            'tl_name' => ['required'],
+            'agent_name' => ['required'],
+            'customer_name' => ['required'],
+            'cell_phone' => ['required'],
+            'service_type' => ['required'],
+            'billing_ac_number' => ['required'],
+            'total_to_pay' => ['required'],
+            'receivable' => ['required'],
+            'profile_pic' => ['nullable'],
 
         ]);
-
+        $request['user_id'] = auth()->user()->id;
+        //        dd($request->all());
         $data = $request->all();
+        if ($request->file('profile_pic')) {
 
-        if ($request->file('profile_pic') ){
-
-        $filename = time(). '.' . $request->profile_pic->extension();
-        $request->profile_pic->move(public_path('uploads'), $filename);
-        $data['profile_pic'] = $filename;
-        }else{
-            $filename =[];
+            $filename = time() . '.' . $request->profile_pic->extension();
+            $request->profile_pic->move(public_path('uploads'), $filename);
+            $data['profile_pic'] = $filename;
+        } else {
+            $filename = NULL;
         }
 
-        Form::create($data);
-        return redirect()->back()->with('success', 'Form has been added successfully');
+        $user = auth()->user();
+        $supervisor = User::findOrFail($user->parent_id);
+
+        $data['comment_disable_time'] = now()->addDays(2)->toDateTimeString();
+
+
+        $form = Form::create($data);
+
+        $supervisor->notify(new FormSubmitNotification($user, $form->id));
+
+        return redirect()->route('employee.forms.index');
     }
 
     /**

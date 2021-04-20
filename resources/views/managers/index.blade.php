@@ -107,9 +107,10 @@
                 <div class="kt-subheader__toolbar">
                     <a href="#" class="">
                     </a>
-
-                    <a href="{{url('user/add/'.$curr_user_permission.'/'.$curr_user.'/'.$filterRole)}}" class="btn btn-label-brand btn-bold">
+                    @can('add-'.$curr_user_permission)
+                    <a href="{{url('user/add/'.$curr_user_permission.'/'.$canSelect.'/'.$filterRole)}}" class="btn btn-label-brand btn-bold">
                         Add {{$curr_user}} </a>
+                        @endcan
                 </div>
             </div>
         </div>
@@ -137,33 +138,15 @@
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <ul class="kt-nav">
                                         <li class="kt-nav__item">
-                                            <a href="#" class="kt-nav__link">
+                                            <a href="{{ route('supervisor.employee.forms',$values->id) }}" class="kt-nav__link">
                                                 <i class="kt-nav__link-icon flaticon2-line-chart"></i>
-                                                <span class="kt-nav__link-text">Reports</span>
+                                                <span class="kt-nav__link-text">Forms</span>
                                             </a>
                                         </li>
                                         <li class="kt-nav__item">
                                             <a href="#" class="kt-nav__link">
                                                 <i class="kt-nav__link-icon flaticon2-send"></i>
                                                 <span class="kt-nav__link-text">Messages</span>
-                                            </a>
-                                        </li>
-                                        <li class="kt-nav__item">
-                                            <a href="#" class="kt-nav__link">
-                                                <i class="kt-nav__link-icon flaticon2-pie-chart-1"></i>
-                                                <span class="kt-nav__link-text">Charts</span>
-                                            </a>
-                                        </li>
-                                        <li class="kt-nav__item">
-                                            <a href="#" class="kt-nav__link">
-                                                <i class="kt-nav__link-icon flaticon2-avatar"></i>
-                                                <span class="kt-nav__link-text">Members</span>
-                                            </a>
-                                        </li>
-                                        <li class="kt-nav__item">
-                                            <a href="#" class="kt-nav__link">
-                                                <i class="kt-nav__link-icon flaticon2-settings"></i>
-                                                <span class="kt-nav__link-text">Settings</span>
                                             </a>
                                         </li>
                                     </ul>

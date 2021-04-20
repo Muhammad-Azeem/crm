@@ -27,9 +27,29 @@ class AuthController extends Controller
 
             return Redirect::to(URL::previous())->with('error', $validator->messages()->first());
         }
+
+
         $email = User::where('email', $request->email)->first();
         if ($email) {
             if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+
+                if (Auth::user()->hasRole('admin')) {
+                    return redirect()->route('admin.dashboard')->with('message', 'Welcome to Admin Dashboard.');
+                }
+
+                if (Auth::user()->hasRole('manager')) {
+                    return redirect()->route('manager.dashboard')->with('message', 'Welcome to Semi Admin Dashboard.');
+                }
+
+                if (Auth::user()->hasRole('supervisor')) {
+                    return redirect()->route('supervisor.dashboard')->with('message', 'welcome to Supervisor Dashboard.');
+                }
+
+                if (Auth::user()->hasRole('customer')) {
+                    return redirect()->route('employee.forms.index')->with('message', 'Welcome to Employee Dashboard.');
+                }
+
+
                 return \redirect(\url('/main-view'))->with('Success', 'LoggedIn Successfully');
             } else {
                 return \redirect()->back()->with('error', 'Invalid Password');
@@ -37,9 +57,9 @@ class AuthController extends Controller
         } else {
             return \redirect()->back()->with('error', 'Email Not Found');
         }
-
     }
-    public function logout(){
+    public function logout()
+    {
         Auth::logout();
         return redirect(url('login'));
     }

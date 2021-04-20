@@ -64,5 +64,9 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'logged' => \App\Http\Middleware\CheckLoggedIn::class,
         'dashboard' => \App\Http\Middleware\Dashboard::class,
+        'can-employee-comment' => \App\Http\Middleware\CanEmployeeComment::class,
+        'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
+        'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
+        'role_or_permission' => \Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class,
     ];
 }
