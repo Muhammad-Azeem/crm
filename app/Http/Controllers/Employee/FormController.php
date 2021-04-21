@@ -77,7 +77,10 @@ class FormController extends Controller
 
         if ($form->user_id !== $user->id) abort(403);
 
-        $user->notifications()->findOrFail($notification_id)->markAsRead();
+        $notification = $user->notifications()->find($notification_id);
+        if ($notification && is_null($notification->read_at)) {
+            $notification->markAsRead();
+        }
 
         return view('users.show-form', compact('user', 'form'));
     }
@@ -87,6 +90,8 @@ class FormController extends Controller
     {
         $user = Auth::user();
 
-        return view('users.show-form', compaction('user', 'form'));
+        if ($form->user_id !== $user->id) abort(403);
+
+        return view('users.show-form', compact('user', 'form'));
     }
 }

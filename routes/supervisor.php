@@ -15,6 +15,8 @@ Route::group(['prefix' => '/supervisor', 'middleware' => ['role:supervisor'], 'a
 
     Route::get('/form/show/{form}/{notification_id}', [\App\Http\Controllers\Supervisor\FormController::class, 'show'])->name('form.show');
 
+    Route::get('/form/show/{form}', [\App\Http\Controllers\Supervisor\FormController::class, 'view'])->name('form.view');
+
     Route::get('/employee-listing', [App\Http\Controllers\Supervisor\EmployeeController::class, 'index'])->name('employee.index');
 
     Route::get('/forms', [\App\Http\Controllers\Supervisor\FormController::class, 'index'])->name('forms.index');

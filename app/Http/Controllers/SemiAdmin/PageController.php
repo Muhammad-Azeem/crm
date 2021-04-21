@@ -5,7 +5,7 @@ namespace App\Http\Controllers\SemiAdmin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\Form;
 
 class PageController extends Controller
 {
@@ -34,6 +34,11 @@ class PageController extends Controller
         $forms = Auth::user()->forms;
 
         return view('semi-admin.forms', compact('forms'));
+    }
+
+    public function showForm(Form $form)
+    {
+        return view('managers.forms.show', compact('form'));
     }
 
 
