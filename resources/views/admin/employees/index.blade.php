@@ -104,7 +104,7 @@
                                             <th>#</th>
                                             <th>Image</th>
                                             <th>Name</th>
-                                            <th>email</th>
+                                            <th>Email</th>
                                             <th>Phone Number</th>
                                             <th>Date Of Birth</th>
                                             <th>Action</th>
@@ -115,7 +115,7 @@
                                         <tr>
                                             <th scope="row">{{ $key + 1 }}</th>
                                             <th>
-                                                <img alt="Pic" style="width:2.4rem;boder-radius:4px" src="{{asset($user->profile_picture ? '/storage/'.$user->profile_picture : 'assets/download.jpeg')}}" />
+                                                <img alt="Pic" style="width:2.4rem;boder-radius:4px" src="{{asset($user->profile_picture ? '/storage/'.$user->profile_picture : 'assets/download.jpeg')}}"/>
                                             </th>
                                             <td>{{ $user->full_name  ?? ''}}</td>
                                             <td>{{ $user->email ?? ''}}</td>
@@ -125,6 +125,7 @@
                                                 <div class="kt-widget__action">
                                                     <a type="button" href="{{ route('admin.employees.edit',[$user->id]) }}" class="btn btn-brand btn-sm btn-upper">Edit</a>
                                                     <a type="button" href="{{ route('admin.employees.forms',[$user->id]) }}" class="btn btn-brand btn-sm btn-upper"> Forms</a>
+                                                    <a type="button" href="{{ route('admin.employees.shift',[$user->id]) }}" class="btn btn-brand btn-sm btn-upper"> Shift</a>
                                                 </div>
                                             </td>
                                         </tr>

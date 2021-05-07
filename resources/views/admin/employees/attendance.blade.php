@@ -14,7 +14,7 @@
             <div class="kt-container  kt-container--fluid ">
                 <div class="kt-subheader__main">
                     <h3 class="kt-subheader__title">
-                        Users
+                        Employees->Attendance
                     </h3>
                     <span class="kt-subheader__separator kt-subheader__separator--v"></span>
                     <div class="kt-subheader__group kt-hidden" id="kt_subheader_group_actions">
@@ -74,75 +74,71 @@
                         </div>
                     </div>
                 </div>
+                <div class="kt-subheader__toolbar">
+                </div>
             </div>
         </div>
 
         <!-- end:: Content Head -->
-         @include('includes.flash-message')
+
         <!-- begin:: Content -->
         <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
-
             <div class="row">
-                <div class="col-xl-12">
+                <div class="kt-portlet">
+                    <div class="kt-portlet__head">
+                        <div class="kt-portlet__head-label">
+                            <h3 class="kt-portlet__head-title">
+                                Attendance List
+                            </h3>
 
-                    <!--begin:: Widgets/Support Tickets -->
-                    <div class="kt-portlet kt-portlet--height-fluid">
-                        <div class="kt-portlet__head">
-                            <div class="kt-portlet__head-label">
-                                <h3 class="kt-portlet__head-title">
-                                    Comments
-                                </h3>
-                            </div>
-                        </div>
-                        <div class="kt-portlet__body">
-                            <div class="kt-widget3">
-                                @if($comments->isNOtEmpty())
-                                 @foreach($comments as $comment)
-                                <div class="kt-widget3__item">
-                                    <div class="kt-widget3__header">
-                                        <div class="kt-widget3__info">
-                                            <span class="kt-widget3__username">
-                                                {{ $comment->user->full_name }}
-                                            </span><br>
-                                            <span class="kt-widget3__time">
-                                                {{ $comment->created_at->diffForHumans() }}
-                                            </span><br>
-                                            @if($comment->file)
-                                            <a target="_blank" href="{{ route('supervisor.form.comment.file.downloads',['comment'=>$comment->id]) }}"class="kt-widget3__username">
-                                                {{ $comment->file_name }}
-                                            </a>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="kt-widget3__body">
-                                        <p class="kt-widget3__text">
-                                            {{ $comment->comment }}
-                                        </p>
-                                    </div>
-                                </div>
-                                @endforeach
-                                @else
-                                <div class="alert alert-primary fade show" role="alert">
-                                    <div class="alert-icon"><i class="flaticon-warning"></i></div>
-                                    <div class="alert-text">No Comments Yet.</div>
-                                    <div class="alert-close">
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                            <span aria-hidden="true"><i class="la la-close"></i></span>
-                                        </button>
-                                    </div>
-                                </div>
-                                @endif
-                            </div>
                         </div>
                     </div>
+                    <div class="kt-portlet__body">
+                        <div class="kt-section">
+                            @if($data->isNOtEmpty())
+                            <div class="kt-section__content">
+                                <table class="table">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Employee Id</th>
+                                            <th>Employee Name</th>
+                                            <th>Check IN</th>
+                                            <th>Check Out</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                      @foreach($data as $key => $user)
+                                        <tr>
+                                            <th scope="row">{{ $key + 1 }}</th>
+                                            <td>{{$user->employee_id  ?? ''}}</td>
+                                            <td>{{ $user->Employee_name  ?? ''}}</td>
+                                            @if($user->type == 'check-in')
+                                            <td>{{$user->created_at}}</td>
+                                            @else
+                                                <td></td>
+                                            @endif
+                                            @if($user->type == 'check-out')
+                                            <td>{{$user->created_at}}</td>
+                                            @else
+                                                <td></td>
+                                            @endif
 
-                    <!--end:: Widgets/Support Tickets -->
+                                        </tr>
+                                       @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                            @else
+                            <div class="alert alert-info" role="alert">
+                                <div class="alert-text"> Sorry you did not have any Attendance Yet.</div>
+                            </div>
+                            @endif
+                        </div>
+                    </div>
                 </div>
-
             </div>
     </div>
-
-
 @endsection
 @section('javascript')
 @endsection

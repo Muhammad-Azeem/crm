@@ -45,6 +45,9 @@ class CommentController extends Controller
                 ]);
         }
 
+        $request->session()->flash('class', 'success');
+        $request->session()->flash('message', 'Comment send and save successfully.');
+
         return redirect()->route('employee.forms.index');
     }
 

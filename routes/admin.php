@@ -23,6 +23,7 @@ Route::group(['prefix' => '/admin', 'middleware' => ['role:admin'], 'as' => 'adm
     Route::resource('/employees', \App\Http\Controllers\Admin\EmployeeController::class)->except('destroy');
 
     Route::get('/employees/{employee}/forms', [\App\Http\Controllers\Admin\EmployeeController::class, 'forms'])->name('employees.forms');
+    Route::get('/employees/{employee}/shift', [\App\Http\Controllers\Admin\EmployeeController::class, 'shift'])->name('employees.shift');
 
 
 
@@ -35,4 +36,5 @@ Route::group(['prefix' => '/admin', 'middleware' => ['role:admin'], 'as' => 'adm
 
 
     Route::resource('/forms', \App\Http\Controllers\Admin\FormController::class)->only(['index', 'show']);
+
 });

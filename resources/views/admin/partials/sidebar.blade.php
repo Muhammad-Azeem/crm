@@ -29,6 +29,8 @@
 
                 <li class="kt-menu__item  kt-menu__item--submenu {{ request()->routeIs('admin.forms.*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{ route('admin.forms.index') }}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-users"></i><span class="kt-menu__link-text">Forms</span></a></li>
 
+                <li class="kt-menu__item  kt-menu__item--submenu {{ request()->routeIs('employees.attendance*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{ route('attendance') }}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-users"></i><span class="kt-menu__link-text">Attendance</span></a></li>
+
 
             </ul>
         </div>

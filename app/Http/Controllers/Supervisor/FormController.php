@@ -57,6 +57,9 @@ class FormController extends Controller
             $semiAdmin->notify(new SendSemiAdminStatusUpdateNotification($supervisor, $form->id));
         }
 
+        $request->session()->flash('class', 'success');
+        $request->session()->flash('message', 'Form status updated Successfully.');
+
         return redirect()->back();
     }
 
