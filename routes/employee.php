@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+//Attendance
+Route::get('/attendance', [\App\Http\Controllers\Employee\AttendanceController::class, 'employeeAllAttendance'])->name('attendance');
 
 Route::group(['prefix' => '/employee', 'middleware' => ['role:customer'], 'as' => 'employee.'], function () {
 
@@ -20,4 +22,9 @@ Route::group(['prefix' => '/employee', 'middleware' => ['role:customer'], 'as' =
     Route::post('/form/comments', [\App\Http\Controllers\Employee\CommentController::class, 'store'])->name('form.comments.store');
     Route::get('/form/{form}/comments', [\App\Http\Controllers\Employee\CommentController::class, 'index'])->name('form.comments.show');
     Route::get('/comment/{comment}/file/download', [\App\Http\Controllers\Employee\CommentController::class, 'downloadFile'])->name('comment.file.download');
+
+    //Attendance
+    Route::get('/attendance', [\App\Http\Controllers\Employee\AttendanceController::class, 'employeeAllAttendance'])->name('attendance');
+
+
 });

@@ -12,6 +12,7 @@ class EmployeeController extends Controller
 {
     public function index()
     {
+
         $users = User::role('customer')->get();
 
         return view('admin.employees.index', compact('users'));
@@ -93,5 +94,11 @@ class EmployeeController extends Controller
         $forms = $employee->forms()->get();
 
         return view('admin.employees.forms.index', compact('forms'));
+    }
+
+    public function shift($employee){
+        $data['user']=User::where('id',$employee)->first();
+        $data['supervisor']=User::role('supervisor')->get();
+        return view('admin.employees.shift', compact('data'));
     }
 }

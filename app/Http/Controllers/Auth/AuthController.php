@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Attendence;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -46,6 +47,12 @@ class AuthController extends Controller
                 }
 
                 if (Auth::user()->hasRole('customer')) {
+                    $user=User::where('email',$request->email)->first();
+                    Attendence::create([
+                        'employee_id'=>$user->id,
+                        'Employee_name'=>$user->f_name.' '.$user->l_name,
+                        'type'=>'check-in',
+                    ]);
                     return redirect()->route('employee.forms.index')->with('message', 'Welcome to Employee Dashboard.');
                 }
 
@@ -60,6 +67,14 @@ class AuthController extends Controller
     }
     public function logout()
     {
+        if (Auth::user()->hasRole('customer')) {
+            $user = Auth::user();
+            Attendence::create([
+                'employee_id' => $user->id,
+                'Employee_name' => $user->f_name . ' ' . $user->l_name,
+                'type' => 'check-out',
+            ]);
+        }
         Auth::logout();
         return redirect(url('login'));
     }
