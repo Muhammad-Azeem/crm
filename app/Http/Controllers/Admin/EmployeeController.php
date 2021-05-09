@@ -101,4 +101,13 @@ class EmployeeController extends Controller
         $data['supervisor']=User::role('supervisor')->get();
         return view('admin.employees.shift', compact('data'));
     }
+
+    public function shiftPost(Request $request,$id){
+        $update=User::where('id',$id)->update([
+            'parent_id'=>$request->parent_id
+        ]);
+        $request->session()->flash('class', 'success');
+        $request->session()->flash('message', 'Supervisor updated Successfully.');
+        return redirect()->back();
+    }
 }

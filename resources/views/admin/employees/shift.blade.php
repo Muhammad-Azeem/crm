@@ -38,7 +38,7 @@
         </div>
 
         <!-- end:: Content Head -->
-
+    @include('includes.flash-message')
         <!-- begin:: Content -->
         <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
             <div class="kt-portlet kt-portlet--tabs">
@@ -60,9 +60,9 @@
                     </div>
                 </div>
                 <div class="kt-portlet__body">
-                    <form action="{{route('admin.employees.update',$data['user']->id)}}" method="post" enctype="multipart/form-data" id="my-form">
+                    <form action="{{route('admin.employees.shift.post',$data['user']->id)}}" method="post" id="my-form">
                         @csrf
-                        @method('put')
+                        @method('post')
 
                         <div class="tab-content">
                             <div class="tab-pane active" id="kt_user_edit_tab_1" role="tabpanel">
@@ -99,7 +99,6 @@
                         <div class="btn-group">
                             <button form="my-form" type="submit" class="btn btn-brand btn-bold">
                                 Change Supervisor </button>
-                            </button>
                         </div>
                     </form>
                 </div>

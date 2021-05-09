@@ -24,6 +24,7 @@ Route::group(['prefix' => '/admin', 'middleware' => ['role:admin'], 'as' => 'adm
 
     Route::get('/employees/{employee}/forms', [\App\Http\Controllers\Admin\EmployeeController::class, 'forms'])->name('employees.forms');
     Route::get('/employees/{employee}/shift', [\App\Http\Controllers\Admin\EmployeeController::class, 'shift'])->name('employees.shift');
+    Route::post('/employees/shift/{employee}', [\App\Http\Controllers\Admin\EmployeeController::class, 'shiftPost'])->name('employees.shift.post');
 
 
 
