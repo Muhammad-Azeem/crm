@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\SemiAdmin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SupervisorRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\URL;
@@ -27,62 +28,33 @@ class SupervisorController extends Controller
 
     public function create()
     {
-        return view('managers.add-supervisor');
+        $users = User::role('manager')->get();
+
+        return view('managers.add-supervisor', compact('users'));
     }
 
 
-    public function store(Request $request)
+    public function store(SupervisorRequest $request)
     {
-        $validator = Validator::make($request->all(), [
-            "f_name" => 'required',
-            "l_name" => 'required',
-            "contact_number" => 'required|digits_between:8,11',
-            "email" => 'required|email|unique:users',
-            "time_slots" => 'required',
-            "profile_avatar" => 'required',
-            "password" => 'required|min:6|same:password_confirmation',
-            "password_confirmation" => 'min:6'
+        $data = $request->validated();
 
-        ]);
-        if ($validator->fails()) {
-            return Redirect::to(URL::previous())->withInput()->with('Error', $validator->messages()->first());
+        $user = User::find($data['parent_id']);
+
+        if ($user && (!$user->hasRole('manager'))) {
+            return redirect()->back()->withErrors(['parent_id', 'Please select the right Semi Admin']);
         }
 
-        $store = User::create([
-            "f_name" => $request->f_name,
-            "l_name" => $request->l_name,
-            "company_name" => $request->company_name,
-            "phone_number" => $request->contact_number,
-            "email" => $request->email,
-            "company_site" => $request->company_site,
-            "username" => $request->username,
-            "language" => $request->language,
-            "time_zone" => $request->time_zone,
-            "communication_by" => $request->communication_by,
-            "password" => bcrypt($request->password),
-        ]);
-        $file = $request->profile_avatar;
-        if ($file) {
-            $imageName = time() . '.' . request()->profile_avatar->getClientOriginalExtension();
-            $file->move(public_path('images'), $imageName);
-            $destination_path = 'images/';
-            $file_path = $destination_path . $imageName;
-            $store->profile_picture = $file_path;
-            $store->save();
+        if ($request->hasFile('profile_picture')) {
+            $data['profile_picture'] = $request->file('profile_picture')->store('profiles');
         }
-        $data = $request->time_slots;
-        if ($data == '9am-6pm') {
-            $store->timeSlot_1 = $data;
-        } elseif ($data == '10am-7pm') {
-            $store->timeSlot_2 = $data;
-        } else {
-            $store->timeSlot_3 = '9am-6pm';
-        }
-        $store->save();
-        if ($store) {
-            return Redirect::to(URL::previous())->with('Success', 'Supervisor Added Successfully');
-        } else {
-            return Redirect::to(URL::previous())->with('Error', 'Failed To Add Supervisor');
-        }
+
+        $user = User::create($data);
+
+        $user->assignRole('supervisor');
+
+        $request->session()->flash('class', 'success');
+        $request->session()->flash('message', 'Supervisor created Successfully.');
+
+        return redirect()->route('manager.supervisors.index');
     }
 }

@@ -75,7 +75,7 @@
                     </div>
                 </div>
                 <div class="kt-subheader__toolbar">
-                    <a href="{{route('admin.employees.create')}}" class="btn btn-label-brand btn-bold">
+                    <a href="{{route('supervisor.employee.create')}}" class="btn btn-label-brand btn-bold">
                         Add Employee </a>
                 </div>
             </div>

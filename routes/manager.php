@@ -21,8 +21,9 @@ Route::group(['prefix' => '/semi-admin', 'middleware' => ['role:manager'], 'as' 
 
 
 
-    // Route::get('/supervisors/create', [\App\Http\Controllers\SemiAdmin\SupervisorController::class, 'create'])->name('supervisors.create');
-    // Route::post('/supervisors', [\App\Http\Controllers\SemiAdmin\SupervisorController::class, 'store'])->name('supervisors.store');
+     Route::get('/supervisors/create', [\App\Http\Controllers\SemiAdmin\SupervisorController::class, 'create'])->name('supervisors.create');
+     Route::post('/supervisors', [\App\Http\Controllers\SemiAdmin\SupervisorController::class, 'store'])->name('supervisors.store');
+
     Route::get('/supervisors', [\App\Http\Controllers\SemiAdmin\SupervisorController::class, 'index'])->name('supervisors.index');
 
 

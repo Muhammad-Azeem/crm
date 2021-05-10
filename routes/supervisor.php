@@ -19,6 +19,9 @@ Route::group(['prefix' => '/supervisor', 'middleware' => ['role:supervisor'], 'a
 
     Route::get('/employee-listing', [App\Http\Controllers\Supervisor\EmployeeController::class, 'index'])->name('employee.index');
 
+    Route::get('/employee-create', [App\Http\Controllers\Supervisor\EmployeeController::class, 'create'])->name('employee.create');
+    Route::post('/employee-store', [App\Http\Controllers\Supervisor\EmployeeController::class, 'store'])->name('employee.store');
+
     Route::get('/forms', [\App\Http\Controllers\Supervisor\FormController::class, 'index'])->name('forms.index');
 
     Route::get('/employee/{employee}/forms', [App\Http\Controllers\Supervisor\FormController::class, 'forms'])->name('employee.forms');

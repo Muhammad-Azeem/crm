@@ -50,8 +50,8 @@ class InstallerSeeder extends Seeder
         /************************ Assign Permission to Roles  *****************************/
 
         $admin->givePermissionTo([$showForm->name, $addManager->name, $addSupervisor->name, $addCustomer->name, $viewCustomer->name, $viewSemiAdmin->name, $viewSupervisor->name, $viewAttendance->name]);
-        $manager->givePermissionTo([$addSupervisor->name, $addCustomer->name, $viewSupervisor->name, $viewAttendance->name, $addSupervisor->name, $viewSupervisor->name]);
-        $supervisor->givePermissionTo([$showForm->name, $addCustomer->name, $viewCustomer->name, $viewAttendance->name, $addCustomer->name, $viewCustomer]);
+        $manager->givePermissionTo([$addSupervisor->name, $addCustomer->name, $viewSupervisor->name, $viewAttendance->name, $addSupervisor->name]);
+        $supervisor->givePermissionTo([$showForm->name, $addCustomer->name, $viewCustomer->name, $viewAttendance->name, $addCustomer->name]);
         $customer->givePermissionTo([$showForm->name, $addForm->name, $viewAttendance->name]);
     }
 }

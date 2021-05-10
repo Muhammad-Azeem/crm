@@ -108,7 +108,7 @@
                     <a href="#" class="">
                     </a>
                     @can('add-'.$curr_user_permission)
-                    <a href="{{url('user/add/'.$curr_user_permission.'/'.$canSelect.'/'.$filterRole)}}" class="btn btn-label-brand btn-bold">
+                    <a href="{{url('semi-admin/supervisors/create')}}" class="btn btn-label-brand btn-bold">
                         Add {{$curr_user}} </a>
                         @endcan
                 </div>

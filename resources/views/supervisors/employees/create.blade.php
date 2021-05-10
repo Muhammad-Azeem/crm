@@ -15,7 +15,7 @@
             <div class="kt-container  kt-container--fluid ">
                 <div class="kt-subheader__main">
                     <h3 class="kt-subheader__title">
-                        Create Supervisor
+                      Create Employee
                     </h3>
                     {{--                <span class="kt-subheader__separator kt-subheader__separator--v"></span>--}}
                     {{--                <div class="kt-subheader__group" id="kt_subheader_search">--}}
@@ -59,7 +59,7 @@
                     </div>
                 </div>
                 <div class="kt-portlet__body">
-                    <form action="{{route('manager.supervisors.store')}}" method="post" enctype="multipart/form-data" id="my-form">
+                    <form action="{{route('supervisor.employee.store')}}" method="post" enctype="multipart/form-data" id="my-form">
                         @csrf
 
                         <div class="tab-content">
@@ -147,10 +147,10 @@
                                                             <div class="input-group-prepend"><span class="input-group-text"><i class="la la-user"></i></span></div>
                                                             <select  class="form-control"   aria-describedby="basic-addon1" name="parent_id" >
                                                                 @forelse($users as $user)
-                                                                    <option value="{{ $user->id }}">{{ $user->full_name . '(' .$user->email .')' }}</option>
+                                                                <option value="{{ $user->id }}">{{ $user->full_name . '(' .$user->email .')' }}</option>
 
                                                                 @empty
-                                                                    <option>NO Any Semi Admin Exist</option>
+                                                                <option>NO Any Semi Admin Exist</option>
                                                                 @endforelse
                                                             </select>
                                                         </div>
@@ -201,7 +201,7 @@
     </div>
 
 
-    <script>
+        <script>
         // Getting an instance of the widget.
         const widget = uploadcare.Widget('[role=uploadcare-uploader]');
         // Selecting an image to be replaced with the uploaded one.
